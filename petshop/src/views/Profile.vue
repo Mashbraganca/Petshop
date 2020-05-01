@@ -52,15 +52,12 @@
                                         <div class="subheadline"> <b>Age:</b> {{pet.age}}y </div>
                                     </v-card-text>
                                 </v-card>
-                                
-                            </v-flex>
-
-                            <v-flex md3>
-                                
-                           
                             </v-flex>
                         </v-layout>
                     </v-containter>
+                    <v-card-actions>
+                        <Popup/>
+                    </v-card-actions>
                 </v-flex>
             </v-layout>
 
@@ -69,7 +66,11 @@
 </template>
 
 <script>
+import Popup from '@/components/AddPet'
+
 export default {
+    components: {Popup},
+
     data () {
         return {
             name: "Solid Snake",
