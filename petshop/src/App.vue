@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <Toolbar @update-user="getUser"/>
+    <Toolbar :logged=logged @update-user="getUser"/>
 
     <v-content>
-      <router-view :logged=logged></router-view>
+      <router-view :logged=logged @register-user="getUser"></router-view>
     </v-content>
 
   </v-app>

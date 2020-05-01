@@ -18,7 +18,7 @@
                     <span>Services</span>
                 </v-btn>
 
-                <v-btn text color="blue" @click="logged = false, emitLogin(false)">
+                <v-btn text color="blue" @click="logged = false, emitLogin(false), sendTo('/')">
                     <span>Sign Out</span>
                 </v-btn>
 
@@ -29,7 +29,7 @@
             <div v-show="!logged">
                 <Login @emit-login="logged = true, emitLogin(true)"/>
 
-                <v-btn text color="blue" @click="logged = true, emitLogin(true)">
+                <v-btn text color="blue" @click="sendTo('/signup')">
                     <span>Sign Up</span>
                 </v-btn>
             </div>
@@ -47,16 +47,16 @@ import Login from './Login'
 
 export default{
     components: {Login},
-    data() {
-        return{
-            logged: false
-        }
-    },
+    props: ['logged'],
 
     methods: {
         emitLogin(info){
             this.$emit('update-user', info);
-        } 
+        },
+
+        sendTo(path){
+            this.$router.push(path);
+        }
     }
 }
 </script>
