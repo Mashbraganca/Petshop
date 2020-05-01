@@ -1,6 +1,10 @@
 <template>
     <nav>
         <v-app-bar flat app class="blue lighten-4">
+            <v-btn text color="blue" @click="sendTo('/')">
+                <span>Home</span>
+            </v-btn>
+
             <div>
                 <v-toolbar-title class="text-uppercase blue--text">
                     <span>Petshop</span>
@@ -10,7 +14,7 @@
             <v-spacer></v-spacer>
 
             <div v-show="logged">
-                <v-btn text color="blue">
+                <v-btn text color="blue" @click="sendTo('/profile')">
                     <span>Profile</span>
                 </v-btn>
 
