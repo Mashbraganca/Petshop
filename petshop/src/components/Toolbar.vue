@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-toolbar flat app class="blue lighten-4">
+        <v-app-bar flat app class="blue lighten-4">
             <div>
                 <v-toolbar-title class="text-uppercase blue--text">
                     <span>Petshop</span>
@@ -27,24 +27,29 @@
                 </v-btn>
             </div>
             <div v-show="!logged">
+                <Login @emit-login="logged = true"/>
+
                 <v-btn text color="blue" @click="logged = true">
-                    <span>Sign In</span>
+                    <span>Sign Up</span>
                 </v-btn>
             </div>
 
             
 
-        </v-toolbar>
+        </v-app-bar>
         
     </nav>
     
 </template>
 
 <script>
+import Login from './Login'
+
 export default{
+    components: {Login},
     data() {
         return{
-            logged: true
+            logged: false
         }
     }
 }

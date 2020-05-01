@@ -70,7 +70,7 @@ export default {
             services: [
               { name: 'X', price: 10.0},
               { name: 'Y', price: 10.0},
-              { name: 'X', price: 10.0}
+              { name: 'Z', price: 10.0}
             ]
         }
     }
