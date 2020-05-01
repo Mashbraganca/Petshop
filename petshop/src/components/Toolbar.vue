@@ -18,7 +18,7 @@
                     <span>Services</span>
                 </v-btn>
 
-                <v-btn text color="blue" @click="logged = false">
+                <v-btn text color="blue" @click="logged = false, emitLogin(false)">
                     <span>Sign Out</span>
                 </v-btn>
 
@@ -27,9 +27,9 @@
                 </v-btn>
             </div>
             <div v-show="!logged">
-                <Login @emit-login="logged = true"/>
+                <Login @emit-login="logged = true, emitLogin(true)"/>
 
-                <v-btn text color="blue" @click="logged = true">
+                <v-btn text color="blue" @click="logged = true, emitLogin(true)">
                     <span>Sign Up</span>
                 </v-btn>
             </div>
@@ -51,6 +51,12 @@ export default{
         return{
             logged: false
         }
+    },
+
+    methods: {
+        emitLogin(info){
+            this.$emit('update-user', info);
+        } 
     }
 }
 </script>
