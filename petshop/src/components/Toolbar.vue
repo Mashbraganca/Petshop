@@ -11,6 +11,10 @@
                 </v-toolbar-title>
             </div>
 
+            <div>
+                <v-text-field hide-details label="Search" single-line></v-text-field>
+            </div>
+
             <v-spacer></v-spacer>
 
             <div v-show="logged">
@@ -26,7 +30,7 @@
                     <span>Sign Out</span>
                 </v-btn>
 
-                <v-btn text color="blue">
+                <v-btn text color="blue" @click="sendTo('/cart')">
                     <span>Cart</span>
                 </v-btn>
             </div>

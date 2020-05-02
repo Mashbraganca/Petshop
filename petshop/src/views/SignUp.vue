@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div>
     <h1>Create a Free Account</h1>
 
     <v-container>
