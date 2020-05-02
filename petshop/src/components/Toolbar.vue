@@ -11,6 +11,10 @@
                 </v-toolbar-title>
             </div>
 
+            <div>
+                <v-text-field hide-details label="Search" single-line></v-text-field>
+            </div>
+
             <v-spacer></v-spacer>
 
             <div v-show="logged">
