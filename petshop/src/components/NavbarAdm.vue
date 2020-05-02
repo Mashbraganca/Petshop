@@ -64,21 +64,23 @@
                                 </v-list-item-title>
                             </v-list-item-content>
                         </template>
+                        <v-list-item-group>
+                            <v-list-item link>
+                                <v-list-item-tittle>Registrar</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-clipboard-account-outline</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </v-list-item-group>
 
-                        <v-list-item link>
-                            <v-list-item-tittle>Registrar</v-list-item-tittle>
-                            <v-list-item-icon>
-                                <v-icon>mdi-clipboard-account-outline</v-icon>
-                            </v-list-item-icon>
-                        </v-list-item>
-
-                        <v-list-item link>
-                            <v-list-item-tittle>Gerenciar</v-list-item-tittle>
-                            <v-list-item-icon>
-                                <v-icon>mdi-account-box-multiple</v-icon>
-                            </v-list-item-icon>
-                        </v-list-item>
-
+                        <v-list-item-group>
+                            <v-list-item link>
+                                <v-list-item-tittle>Gerenciar</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-account-box-multiple</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </v-list-item-group>
                     </v-list-group>
 
                     <v-list-group
@@ -95,64 +97,50 @@
                                 </v-list-item-title>
                             </v-list-item-content>
                         </template>
+                        <v-list-item-group>
+                            <v-list-item link>
+                                <v-list-item-tittle>Registrar</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-clipboard-account-outline</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </v-list-item-group>
 
-                        <v-list-item link>
-                            <v-list-item-tittle>Registrar</v-list-item-tittle>
-                            <v-list-item-icon>
-                                <v-icon>mdi-clipboard-account-outline</v-icon>
-                            </v-list-item-icon>
-                        </v-list-item>
-
-                        <v-list-item link>
-                            <v-list-item-tittle>Gerenciar</v-list-item-tittle>
-                            <v-list-item-icon>
-                                <v-icon>mdi-account-box-multiple</v-icon>
-                            </v-list-item-icon>
-                        </v-list-item>
-
+                        <v-list-item-group>
+                            <v-list-item link>
+                                <v-list-item-tittle>Gerenciar</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-account-box-multiple</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </v-list-item-group>
                     </v-list-group>
 
 
                 </v-list-group>
 
-                    <v-list-group
-                    prepend-icon="mdi-package"
-                    value="true"
-                    color="deep-purple darken-4"
-                    >
+                <v-list-group
+                prepend-icon="mdi-package"
+                value="true"
+                color="deep-purple darken-4"
+                >
 
                     <template v-slot:activator>
                         <v-list-item-tittle>
                             Produtos
                         </v-list-item-tittle>
                     </template>
-                    <v-list-group
-                    no-action
-                    sub-group
-                    value="true"
-                    color="deep-purple darken-4"
-                    >
-                        <template v-slot:activator>
-                            <v-list-item-content>
-                                <v-list-item-tittle>Categorias</v-list-item-tittle>
-                            </v-list-item-content>
-                        </template>
 
+                    <v-list-item-group>
                         <v-list-item link>
-                            <v-list-item-tittle>Criar</v-list-item-tittle>
+                            <v-list-item-tittle>Categorias</v-list-item-tittle>
                             <v-list-item-icon>
-                                <v-icon>mdi-clipboard-account-outline</v-icon>
+                                 <v-icon>mdi-folder-plus-outline</v-icon>
                             </v-list-item-icon>
                         </v-list-item>
+                    </v-list-item-group>
 
-                        <v-list-item link>
-                            <v-list-item-tittle>Gerenciar</v-list-item-tittle>
-                            <v-list-item-icon>
-                                <v-icon>mdi-account-box-multiple</v-icon>
-                            </v-list-item-icon>
-                        </v-list-item>   
-                    </v-list-group> 
-
+                    
                     <v-list-group
                     no-action
                     sub-group
@@ -164,19 +152,21 @@
                                 <v-list-item-tittle>Item</v-list-item-tittle>
                             </v-list-item-content>
                         </template>
+
                         <v-list-item-group>
                             <v-list-item link>
                                 <v-list-item-tittle>Criar</v-list-item-tittle>
                                 <v-list-item-icon>
-                                    <v-icon>mdi-clipboard-account-outline</v-icon>
+                                    <v-icon>mdi-package-variant</v-icon>
                                 </v-list-item-icon>
                             </v-list-item>
                         </v-list-item-group>
+
                         <v-list-item-group>
                             <v-list-item link>
                                 <v-list-item-tittle>Gerenciar</v-list-item-tittle>
                                 <v-list-item-icon>
-                                    <v-icon>mdi-account-box-multiple</v-icon>
+                                    <v-icon>mdi-package-variant-closed</v-icon>
                                 </v-list-item-icon>
                             </v-list-item>
                         </v-list-item-group>   
@@ -196,6 +186,25 @@
                         </v-list-item-tittle>
                     </template>
 
+                    <v-list-item-group>
+                        <v-list-item link>
+                            <v-list-item-tittle>Categorias</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-folder-plus-outline</v-icon>
+                                </v-list-item-icon>
+                        </v-list-item>
+                    </v-list-item-group>
+
+                    <v-list-item-group>
+                        <v-list-item link>
+                            <v-list-item-tittle>Agendamento</v-list-item-tittle>
+                                <v-list-item-icon>
+                                    <v-icon>mdi-calendar-clock</v-icon>
+                                </v-list-item-icon>
+                        </v-list-item>
+                    </v-list-item-group>
+
+                    
                 </v-list-group>
             
                 
