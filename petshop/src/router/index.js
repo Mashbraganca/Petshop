@@ -41,6 +41,12 @@ Vue.use(VueRouter)
     path: '/profile',
     name: 'Profile',
     component: () => import('../views/Profile.vue')
+  },
+
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import('../views/Cart.vue')
   }
 ]
 

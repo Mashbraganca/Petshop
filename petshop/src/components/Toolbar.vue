@@ -26,7 +26,7 @@
                     <span>Sign Out</span>
                 </v-btn>
 
-                <v-btn text color="blue">
+                <v-btn text color="blue" @click="sendTo('/cart')">
                     <span>Cart</span>
                 </v-btn>
             </div>
