@@ -1,8 +1,18 @@
 <template>
   <v-app>
-    <NavbarAdm />
-    <div class="admin">
-    <h1>This is the admin page</h1>
+    <NavbarAdm/>
+    <div class="admin" background-color="purple accent-4">
+      <div color="purple accent-4">
+        <v-card 
+        class="mx-auto"
+        elevation-12
+        max-width="900"
+        >
+          <v-list-item >
+            
+          </v-list-item>
+        </v-card>
+      </div>
     </div>
   </v-app>
   
