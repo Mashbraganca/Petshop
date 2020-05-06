@@ -74,7 +74,7 @@ import Toolbar from '@/components/Toolbar'
 
 
 export default {
-    components: [{Popup}, { Toolbar },],
+    components: {Popup, Toolbar },
                 
 
     data () {
