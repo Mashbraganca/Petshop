@@ -4,7 +4,7 @@ background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
     <NavbarAdm/>
     <div class="admin">
       <div><v-row>a</v-row></div>
-      <div>
+      <div class="AdminReg">
         <v-card 
         class="ma-auto"
         elevation-15
@@ -67,6 +67,38 @@ background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
                   ></v-text-field>
 
                 </v-col>
+
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <v-text-field
+                    v-model="password"
+                    :rules="passwordRules"
+                    label="Senha"
+                    required
+                  ></v-text-field>
+
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <v-text-field
+                    v-model="confpassword"
+                    :rules="passwordRules"
+                    label="Confirmar senha"
+                    required
+                  ></v-text-field>
+
+                </v-col>
+
+
+                <v-col
+                cols="12"
+                md="1"
+                ></v-col>
                 
                 <v-col
                   cols="12"
@@ -110,99 +142,6 @@ background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
         </v-card>
       </div>
       <div><v-row>a</v-row></div>
-      <div>
-        <v-card 
-        class="ma-auto"
-        elevation-15
-        max-width="900"
-        >
-          <v-card-title primary-title>
-            Registrar novo administrador:
-          </v-card-title>
-          <v-form v-model="valid">
-            <v-container grid-list-xs>
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field 
-                  v-model="name"
-                  :rules="nameRules"
-                  :counter="15"
-                  label="Nome"
-                  required
-                  ></v-text-field>
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field 
-                  v-model="lastname"
-                  :rules="lastnameRules"
-                  :counter="30"
-                  label="Sobrenome"
-                  required
-                  ></v-text-field>
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    required
-                  ></v-text-field>
-
-                </v-col>
-                
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    v-model="phone"
-                    :rules="phoneRules"
-                    label="Telefone"
-                    required
-                  ></v-text-field>
-
-                </v-col>
-                
-                <v-col
-                  cols="12"
-                  md="3"
-                >
-                  <v-avatar size=160px>
-                    <img :src=photo alt="Profile Picture">
-                  </v-avatar>
-
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="8"
-                >
-                  <v-file-input
-                    :rules="rules"
-                    accept="image/png, image/jpeg, image/bmp"
-                    placeholder="Escolha uma foto"
-                    prepend-icon="mdi-camera"
-                    label="Foto de Profile"
-                  ></v-file-input>
-                </v-col>
-
-
-              </v-row>
-            </v-container>
-          </v-form>
-
-        </v-card>
-      </div>
     </div>
   </v-app>
   
@@ -238,6 +177,9 @@ export default {
         v => !!v || 'Requer número de telefone',
         v => /^[0-9]*$/.test(v)   || 'Número tem que ser válido'
       ],
+      password: '',
+      confpassword: '',
+
       photo: './profile-placeholder.png',
       photoRule: [
         value => !value || value.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',

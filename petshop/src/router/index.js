@@ -29,12 +29,30 @@ Vue.use(VueRouter)
   },
 
   {
-    path: '/Admin',
-    name: 'Admin',
+    path: '/AdminReg',
+    name: 'AdminReg',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AdminReg.vue')
+  },
+
+  {
+    path: '/ClientReg',
+    name: 'ClientReg',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ClientReg.vue')
+  },
+
+  {
+    path: '/GerenClientes',
+    name: 'GerenClientes',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/GerenClientes.vue')
   },
 
   {
