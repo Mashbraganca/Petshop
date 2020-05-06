@@ -130,6 +130,46 @@ background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
                         </v-col>
                         <v-col
                         cols="12"
+                         md="12"
+                        >
+                        <v-list
+                            v-for="pet in pets"
+                            :key="pet.id"
+                            no-action
+                            class="ma-3 elevation-10"
+                            color="indigo darken-2"
+                        >
+                        
+                        <v-list-item-content>
+                            <v-col
+                            cols="12"
+                            md="3"
+                            >
+                                <v-avatar
+                                 size="62"
+                                >
+                                    <v-img :src=pet.photo></v-img>
+                                </v-avatar>
+                            </v-col>
+                            <v-col
+                            cols="12"
+                            md="5"
+                            >
+                                <v-list-item-title>Nome: {{pet.name}}</v-list-item-title>
+                                <v-list-tile-sub-title>Id: {{pet.id}} Raça: {{pet.race}} Idade: {{pet.age}}</v-list-tile-sub-title>
+                            </v-col>
+                            <v-col
+                             cols="12"
+                             md="4"
+                            >
+                                <v-btn rounded color="primary" dark>editar</v-btn>
+                            </v-col>
+                        </v-list-item-content>
+                            
+                        </v-list>
+                        </v-col>
+                        <v-col
+                        cols="12"
                          md="10"
                         ></v-col>
 
