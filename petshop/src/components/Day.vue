@@ -1,8 +1,9 @@
 <template>
     <v-dialog v-model="popup" max-width="500px">
         <template v-slot:activator="{ on }">
-            <v-btn class="ma-1" outlined text color="blue" v-on="on" small width=10px>
-                {{date.day+1}}/{{date.month+1}}
+            <v-btn class="ma-1" :disabled="date.day == -1" outlined text color="blue" v-on="on" small width=10px>
+                <div v-if="date.day != -1">{{date.day+1}}/{{date.month+1}}</div>
+                <div v-else>--/--</div>
             </v-btn>
         </template>
         <v-card>
@@ -65,7 +66,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue" text @click="popup = false">Cancel</v-btn>
-                <v-btn color="blue" text @click="popup = false">Save</v-btn>
+                <v-btn color="blue" text @click="popup = false">Select</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>

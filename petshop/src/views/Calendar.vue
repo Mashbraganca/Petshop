@@ -2,20 +2,27 @@
   <v-app>
     <Toolbar :logged=logged @update-user="getUser"/>
   
-    <div>
-      <h1>Calendar</h1>
-      <v-container pa-0>
-        <v-layout row wrap>
-          <v-flex md1 v-for="i in 7" :key=i>
-            <v-card flat v-for="j in 10" :key=j>
-                <Day :date="getDate((j-1)*7 + (i-1))" />
-            </v-card>
-          </v-flex>
-        </v-layout>
-        
-      </v-container>
+    <v-container><v-layout row wrap>
+        <v-flex md8>
+            <h1>Calendar</h1>
+            <v-container pa-0>
+                <v-layout row wrap>
+                <v-flex md1 v-for="i in 7" :key=i>
+                    <v-card-text class="text-cented">{{days[i-1]}}</v-card-text>
+                    <v-card flat v-for="j in 11" :key=j>
+                        <div v-if="j>1 || i>=week+1"><Day :date="getDate((j-1)*7 + (i-1) - week)" /></div>
+                        <div v-else><Day :date="{day: -1}" /></div>
+                    </v-card>
+                </v-flex>
+                </v-layout>
+            </v-container>
+        </v-flex>
 
-    </div>
+        <v-flex>
+            <h1>Pet</h1>
+            <v-select :items="pets" filled label="Standard"></v-select>
+        </v-flex>
+    </v-layout></v-container>
   </v-app>
 </template>
 
@@ -29,12 +36,17 @@ export default {
 
   data() {
     return{
-      services: [
-        { name: 'X', price: 10.0, icon: '/service-placeholder.png'},
-        { name: 'Y', price: 10.0, icon: '/service-placeholder.png'},
-        { name: 'Z', price: 10.0, icon: '/service-placeholder.png'}
-      ]
+      days: ['Sun', 'Mon', 'Tue', 'Wes', 'Thu', 'Fri', 'Sat'],
+
+      pets: ['pet1', 'pet2', 'pet3', 'pet4', 'pet5']
     }
+  },
+
+  computed: {
+      week () {
+          var currentDate = new Date();
+          return currentDate.getDay();
+      }
   },
 
   methods: {
