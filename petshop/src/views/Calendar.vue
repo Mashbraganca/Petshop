@@ -19,8 +19,15 @@
         </v-flex>
 
         <v-flex>
-            <h1>Pet</h1>
-            <v-select :items="pets" filled label="Standard"></v-select>
+            <h1>Additional Information</h1>
+            <v-select :items="pets" filled label="Select 1 Pet"></v-select>
+            <v-text-field label="Credit Card*" required></v-text-field>
+
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue" text>Shedule</v-btn>
+                
+            </v-card-actions>
         </v-flex>
     </v-layout></v-container>
   </v-app>
