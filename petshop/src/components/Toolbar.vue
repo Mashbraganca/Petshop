@@ -22,7 +22,7 @@
                     <span>Profile</span>
                 </v-btn>
 
-                <v-btn text color="blue">
+                <v-btn text color="blue" @click="sendTo('/calendar')">
                     <span>Services</span>
                 </v-btn>
 

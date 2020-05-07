@@ -49,6 +49,16 @@
                 </v-card>
             </v-flex>
 
+            <v-flex md6>
+                
+
+                <v-card-actions>
+                    <v-text-field label="Credit Card*" required></v-text-field>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue" text>Buy</v-btn>
+                    </v-card-actions>
+            </v-flex>
+
         </v-container>
     </div>
   </v-app>
