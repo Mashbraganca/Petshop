@@ -97,6 +97,12 @@ Vue.use(VueRouter)
     path: '/cart',
     name: 'Cart',
     component: () => import('../views/Cart.vue')
+  },
+
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import('../views/Calendar.vue')
   }
 ]
 
