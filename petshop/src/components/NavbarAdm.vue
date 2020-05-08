@@ -188,7 +188,7 @@
 
                     <v-list-item-group>
                         <v-list-item link>
-                            <v-list-item-tittle>Categorias</v-list-item-tittle>
+                            <v-list-item-tittle>Novos serviços</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-folder-plus-outline</v-icon>
                                 </v-list-item-icon>

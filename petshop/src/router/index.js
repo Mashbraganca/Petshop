@@ -18,6 +18,38 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/GerenAdmin.vue')
   },
+  {
+    path: '/GerenItens',
+    name: 'GerenItens',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/GerenItens.vue')
+  },
+  {
+    path: '/CatServ',
+    name: 'CatServ',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CatServ.vue')
+  },
+  {
+    path: '/CatItem',
+    name: 'CatItem',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CatItem.vue')
+  },
+  {
+    path: '/CadItem',
+    name: 'CadItem',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadItem.vue')
+  },
 
   {
     path: '/signup',
