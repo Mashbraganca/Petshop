@@ -2,9 +2,9 @@
   <v-app style=" background: #B388FF background: -webkit-linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF); 
 background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
     <NavbarAdm/>
-    <div class="client">
+    <div class="Product">
       <div><v-row>a</v-row></div>
-      <div class="ClientReg">
+      <div class="ProductReg">
         <v-card 
         class="ma-auto"
         elevation-15

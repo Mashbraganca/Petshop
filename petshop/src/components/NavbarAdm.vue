@@ -195,16 +195,7 @@
                         </v-list-item>
                     </v-list-item-group>
 
-                    <v-list-item-group>
-                        <v-list-item link>
-                            <v-list-item-tittle>Agendamento</v-list-item-tittle>
-                                <v-list-item-icon>
-                                    <v-icon>mdi-calendar-clock</v-icon>
-                                </v-list-item-icon>
-                        </v-list-item>
-                    </v-list-item-group>
-
-                    
+                                        
                 </v-list-group>
             
                 
