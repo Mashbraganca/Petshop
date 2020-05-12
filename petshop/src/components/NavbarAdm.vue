@@ -64,8 +64,8 @@
                                 </v-list-item-title>
                             </v-list-item-content>
                         </template>
-                        <v-list-item-group>
-                            <v-list-item link>
+                        <v-list-item-group >
+                            <v-list-item @click="sendTo('/AdminReg')" >
                                 <v-list-item-tittle>Registrar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-clipboard-account-outline</v-icon>
@@ -74,7 +74,7 @@
                         </v-list-item-group>
 
                         <v-list-item-group>
-                            <v-list-item link>
+                            <v-list-item @click="sendTo('/GerenAdmin')">
                                 <v-list-item-tittle>Gerenciar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-account-box-multiple</v-icon>
@@ -98,7 +98,7 @@
                             </v-list-item-content>
                         </template>
                         <v-list-item-group>
-                            <v-list-item link>
+                            <v-list-item @click="sendTo('/ClientReg')">
                                 <v-list-item-tittle>Registrar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-clipboard-account-outline</v-icon>
@@ -107,7 +107,7 @@
                         </v-list-item-group>
 
                         <v-list-item-group>
-                            <v-list-item link>
+                            <v-list-item @click="sendTo('/GerenClientes')">
                                 <v-list-item-tittle>Gerenciar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-account-box-multiple</v-icon>
@@ -132,7 +132,7 @@
                     </template>
 
                     <v-list-item-group>
-                        <v-list-item link>
+                        <v-list-item @click="sendTo('/CatItem')">
                             <v-list-item-tittle>Categorias</v-list-item-tittle>
                             <v-list-item-icon>
                                  <v-icon>mdi-folder-plus-outline</v-icon>
@@ -154,7 +154,7 @@
                         </template>
 
                         <v-list-item-group>
-                            <v-list-item link>
+                            <v-list-item @click="sendTo('/CadItem')">
                                 <v-list-item-tittle>Criar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-package-variant</v-icon>
@@ -163,7 +163,7 @@
                         </v-list-item-group>
 
                         <v-list-item-group>
-                            <v-list-item link>
+                            <v-list-item @click="sendTo('/GerenItens')">
                                 <v-list-item-tittle>Gerenciar</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-package-variant-closed</v-icon>
@@ -187,7 +187,7 @@
                     </template>
 
                     <v-list-item-group>
-                        <v-list-item link>
+                        <v-list-item @click="sendTo('/CatServ')">
                             <v-list-item-tittle>Novos serviços</v-list-item-tittle>
                                 <v-list-item-icon>
                                     <v-icon>mdi-folder-plus-outline</v-icon>
@@ -202,7 +202,7 @@
                 <v-list-item-group
                 color="deep-purple darken-4"
                 >
-                    <v-list-item>
+                    <v-list-item @click="sendTo('/Fat')">
                         <v-list-item-icon>
                             <v-icon>mdi-cash</v-icon>
                         </v-list-item-icon>
@@ -225,6 +225,12 @@ export default {
        
         return{
             drawer: false
+        }
+    },
+    methods: {
+        
+        sendTo(path){
+            this.$router.push(path);
         }
     }
 }
