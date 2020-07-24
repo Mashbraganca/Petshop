@@ -1,6 +1,5 @@
 <template>
-  <v-app style=" background: #B388FF background: -webkit-linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF); 
-background: linear-gradient(to bottom, #EA80FC, #82B1FF, #B388FF);">
+  <v-app style=" background: #AD97FF ">
     <NavbarAdm/>
     <div class="Product">
       <div><v-row>a</v-row></div>

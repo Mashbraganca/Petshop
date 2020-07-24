@@ -1,22 +1,19 @@
 <template>
     <v-dialog v-model="popup" persistent max-width="400px">
-        <template v-slot:activator="{ on }">
-            <v-btn text color="blue" v-on="on" @click="login = false">Sign In</v-btn>
-        </template>
         <v-card>
             <v-card-title>
                 <h1>Login</h1>
             </v-card-title>
 
             <v-card-text>
-                <v-text-field label="Username*" required></v-text-field>
-                <v-text-field label="Password*" type="password" required></v-text-field>
+                <v-text-field label="Username*" v-model="this.username" required></v-text-field>
+                <v-text-field label="Password*" v-model="this.password" type="password" required></v-text-field>
             </v-card-text>
 
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue" text @click="popup = false">Cancel</v-btn>
-                <v-btn color="blue" text @click="popup = false, emitLogin()">Save</v-btn>
+                <v-btn color="blue" text @click="cancelLogin()">Cancel</v-btn>
+                <v-btn color="blue" text @click="checkLogin()">Save</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -24,16 +21,47 @@
 
 <script>
 export default {
-  data() {
-    return {
-      popup: false,
-    };
-  },
+    props: [ 'popup' ],
+    data() {
+        return {
+            username: '',
+            password: ''
+        }
+    },
 
-  methods: {
-      emitLogin() {
-          this.$emit('emit-login', true);
-      }
-  }
+
+    methods: {
+        checkLogin() {
+            //load and validate login information here
+            let validLogin = true;
+
+
+
+
+            if (validLogin) {
+                //replace the placeholder JSON with a user info JSON
+                this.$emit('login', { 
+                    name: "Solid Snake",
+                    photo: './profile-placeholder.png',
+                    id: "SNAAAAAAAAAAAAAAKE",
+                    address: "a box",
+                    phone: "000000000",
+                    email: "snake.SNAAAAKE@gmail.com",
+
+                    pets: [
+                        {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
+                        {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
+                        {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
+                    ]
+                });
+            } else {
+                alert("Username ou senha inválidos");
+            }
+        },
+
+        cancelLogin(){
+            this.$emit('cancel');
+        }
+    }
 };
 </script>

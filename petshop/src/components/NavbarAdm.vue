@@ -1,9 +1,6 @@
 <template>
     <nav>
-        <v-app-bar
-        color="light-blue darken-3"
-        dark
-        >
+        <v-app-bar app color="light-blue darken-3" dark>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-icon>mdi-paw</v-icon>

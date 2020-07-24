@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Toolbar :logged=logged @update-user="getUser"/>
+    <Toolbar :logged=logged @update-user="send"/>
   
     <div class="home">
       <h1>Products</h1>
@@ -98,5 +98,11 @@ export default {
       ]
     }
   },
+
+  methods: {
+    send(user){
+      this.$emit('register-user', user);
+    }
+  }
 }
 </script>
