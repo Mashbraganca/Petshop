@@ -14,6 +14,9 @@ export default {
 
   data: () => ({
     logged: false,
+
+    cart: [],
+
     user: {
       name: "Solid Snake",
       photo: './profile-placeholder.png',
@@ -34,6 +37,7 @@ export default {
     getUser(info) {
       if (info == null){
         this.logged = false;
+        this.cart = [];
         //placeholder, can be null at the futute, only relevant on development 
         this.user = {
           name: "Solid Snake",

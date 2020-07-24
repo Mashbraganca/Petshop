@@ -5,7 +5,7 @@
             <v-container>
                 <v-layout row wrap>
                     <v-flex md3>
-                        <v-card-title> <h1>Profile</h1></v-card-title>
+                        <v-card-title> <h1>Profile</h1> </v-card-title>
 
                         <v-avatar size=250px>
                             <img :src=user.photo alt="Profile Picture">
@@ -40,9 +40,9 @@
                         <v-container>
                             <v-layout row wrap>
                                 <v-flex md4 v-for="pet in user.pets" :key="pet.id">
-                                    <v-card flat class="text-center ma-2" color="blue lighten-5">
+                                    <v-card flat class="text-center ma-2" outlined>
                                         <v-responsive class="pt-4">
-                                            <v-avatar size=150px center>
+                                            <v-avatar size=100px center>
                                                 <img :src=pet.photo :alt=pet.race>
                                             </v-avatar>
                                         </v-responsive>
@@ -50,15 +50,16 @@
                                         <v-card-text>
                                             <div class="headline blue--text"> {{pet.name}} </div>
                                             <div class="subheadline"> {{pet.race}} </div>
-                                            <div class="subheadline"> <b>Id:</b> {{pet.id}} </div>
-                                            <div class="subheadline"> <b>Age:</b> {{pet.age}}y </div>
+                                            <div class="subheadline"> <b>Idade:</b> {{pet.age}}y </div>
+                                            <Popup @update-pet="send" :user=user :pet=pet />
                                         </v-card-text>
+
                                     </v-card>
                                 </v-flex>
                             </v-layout>
                         </v-container>
                         <v-card-actions>
-                            <Popup/>
+                            <Popup @update-pet="send" :user=user :pet=null />
                         </v-card-actions>
                     </v-flex>
                 </v-layout>
@@ -69,7 +70,7 @@
 </template>
 
 <script>
-import Popup from '@/components/AddPet'
+import Popup from '@/components/Pet'
 import Toolbar from '@/components/Toolbar'
 
 
@@ -87,6 +88,10 @@ export default {
     methods: {
         send(user){
             this.$emit('register-user', user);
+        },
+
+        delPet(id){
+            console.log(id + " deleted");
         }
     }
 }

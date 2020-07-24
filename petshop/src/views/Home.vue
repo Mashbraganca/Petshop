@@ -7,7 +7,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex md3 v-for="product in storage" :key="product.name">
-            <v-card flat class="text-center ma-2" color="blue lighten-5">
+            <v-card outlined class="text-center ma-2">
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
                   <img :src=product.photo :alt=product.name>
@@ -42,7 +42,7 @@
 
         <v-layout row wrap>
           <v-flex md3 v-for="service in services" :key="service.name">
-            <v-card flat class="text-center ma-2" color="blue lighten-5">
+            <v-card outlined class="text-center ma-2" >
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
                   <img :src=service.icon :alt=service.name>
