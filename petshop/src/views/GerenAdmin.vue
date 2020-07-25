@@ -1,8 +1,9 @@
 <template>
   <v-app style=" background: #AD97FF ">
     <NavbarAdm :user="user" @update-user="send"/>
-    <div class="Admin">
-        <div class="GerenAdmin">
+    <div class="GerenAdmin">
+        <div><v-row>a</v-row></div>
+        <div>
             <v-card class="mx-auto my-6" max-width="80%">
                 <v-row class="ma-0">
                     <v-col cols="12" md="6">
@@ -77,11 +78,18 @@ export default {
         },
 
         edit(admin){
-            this.$emit('edit-profile', admin);
+            this.$emit('set-target', admin);
+            this.$router.push('AdminReg');
         },
 
         del(admin){
-            this.$emit('delete-profile', admin);
+            //deletar admin referenciado
+            console.log("Deleting " + admin.name);
+
+
+
+
+            this.$emit('refresh', 'admins');
         }
     }
 };

@@ -6,11 +6,14 @@
         :gizmo=gizmo
         :logged=logged
         :user=user
+        :target=target
         :products=products
         :services=services
         :orders=orders
         :admins=admins
         @register-user="getUser"
+        @set-target="setTarget"
+        @refresh="refresh"
         @to-calendar="toCalendar"
         @to-cart="toCart">
       </router-view>
@@ -28,6 +31,7 @@ export default {
     logged: false,
     cart: [],
     gizmo: null,
+    target: null,
 
     //placeholders, can assume null values on final version
     user: { 
@@ -101,6 +105,39 @@ export default {
 
     toCalendar(service){
       this.gizmo = service;
+    },
+
+    setTarget(target){
+      this.target = target;
+    },
+
+    refresh(op){
+      switch(op){
+        case 'customers':
+          //dar get na lista de clientes
+          console.log("Customer List Updated!");
+          break;
+        
+        case 'admins':
+          //dar get na lista de admins
+          console.log("Admin List Updated!");
+          break;
+
+        case 'products':
+          //dar get na lista de produtos
+          console.log("Product List Updated!");
+          break;
+
+        case 'services':
+          //dar get na lista de serviços
+          console.log("Service List Updated!");
+          break;
+
+        case 'orders':
+          //dar get na lista de pedidos
+          console.log("Order List Updated!");
+          break;
+      }
     }
   }
 };
