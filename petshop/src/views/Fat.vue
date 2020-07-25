@@ -1,6 +1,6 @@
 <template>
   <v-app style=" background: #AD97FF ">
-    <NavbarAdm/>
+    <NavbarAdm @update-user="send"/>
     <div class="Faturamento">
       <div><v-row>a</v-row></div>
       <div class="Faturamento">
@@ -243,5 +243,11 @@ export default {
           
         ],
   }),
+
+  methods: {
+    send(user){
+      this.$emit('register-user', user);
+    }
+  }
 };
 </script>

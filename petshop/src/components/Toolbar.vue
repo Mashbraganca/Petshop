@@ -1,13 +1,12 @@
 <template>
     <nav>
         <v-app-bar app color="light-blue darken-3" dark>
-            <v-app-bar-nav-icon class="mx-auto" @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-            <v-btn class="text-capitalize" text large @click="sendTo('/')">
+            <v-app-bar-nav-icon class="mx-0" @click="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-btn class="text-capitalize px-2" text large @click="sendTo('/')" >
                 <v-icon>mdi-paw</v-icon>
                 <span> <h1 class="font-weight-black">Pet Shop</h1> </span>
             </v-btn>
-
+            
             <v-spacer></v-spacer>
 
             <v-btn v-show="logged" icon @click="logout()">

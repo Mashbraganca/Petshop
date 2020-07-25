@@ -6,8 +6,8 @@
             </v-card-title>
 
             <v-card-text>
-                <v-text-field label="Username*" v-model="this.username" required></v-text-field>
-                <v-text-field label="Password*" v-model="this.password" type="password" required></v-text-field>
+                <v-text-field label="Username" v-model="username" required></v-text-field>
+                <v-text-field label="Password" v-model="password" type="password" required></v-text-field>
             </v-card-text>
 
             <v-card-actions>
@@ -35,7 +35,20 @@ export default {
             //load and validate login information here
             let validLogin = true;
 
+            //check admin entry
+            if (this.username == "admin" && this.password == "admin"){
+                this.$emit('login', {
+                    name: "Solid",
+                    lastName: "Snake",
+                    photo: './profile-placeholder.png',
+                    id: "SNAAAAAAAAAAAAAAKE",
+                    phone: "000000000",
+                    email: "snake.SNAAAAKE@gmail.com"
+                });
 
+                this.$router.push('/admin');
+                return;
+            }
 
 
             if (validLogin) {

@@ -69,7 +69,6 @@ export default {
         this.logged = false;
         this.cart = [];
         this.user = null;
-
         this.$router.push('/');
       } else {
         this.logged = true;
