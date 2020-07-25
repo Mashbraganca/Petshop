@@ -17,20 +17,7 @@ export default {
 
     cart: [],
 
-    user: {
-      name: "Solid Snake",
-      photo: './profile-placeholder.png',
-      id: "SNAAAAAAAAAAAAAAKE",
-      address: "a box",
-      phone: "000000000",
-      email: "snake.SNAAAAKE@gmail.com",
-
-      pets: [
-          {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-          {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-          {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-      ]
-    }
+    user: null
   }),
 
   methods: {
@@ -38,21 +25,7 @@ export default {
       if (info == null){
         this.logged = false;
         this.cart = [];
-        //placeholder, can be null at the futute, only relevant on development 
-        this.user = {
-          name: "Solid Snake",
-          photo: './profile-placeholder.png',
-          id: "SNAAAAAAAAAAAAAAKE",
-          address: "a box",
-          phone: "000000000",
-          email: "snake.SNAAAAKE@gmail.com",
-
-          pets: [
-              {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-              {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-              {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-          ]
-        };
+        this.user = null;
 
         this.$router.push('/');
       } else {

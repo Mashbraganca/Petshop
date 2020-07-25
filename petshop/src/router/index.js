@@ -52,7 +52,7 @@ Vue.use(VueRouter)
   },
 
   {
-    path: '/signup',
+    path: '/new',
     name: 'Sign Up',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

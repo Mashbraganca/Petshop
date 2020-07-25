@@ -24,7 +24,7 @@
                     </v-list-item-avatar>
 
                     <v-list-item-content>
-                        <v-list-item-title> {{ user.name }} </v-list-item-title>
+                        <v-list-item-title> {{ username }} </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider></v-divider>
@@ -68,7 +68,7 @@
                     </v-list-item-group>
                     
                     <v-list-item-group color="deep-purple darken-4">
-                        <v-list-item @click="sendTo('/signup')">
+                        <v-list-item @click="sendTo('/new')">
                             <v-list-item-icon> <v-icon>mdi-clipboard-account-outline</v-icon> </v-list-item-icon>
                             <v-list-item-content> <v-list-item-title>Registrar</v-list-item-title> </v-list-item-content>
                         </v-list-item>
@@ -84,16 +84,23 @@
 <script>
 import Login from './Login'
 
-export default{
+export default {
     components: {Login},
-    props: ['logged'],
+    props: ['logged', 'user'],
 
     data: () => { 
         return{
             drawer: false,
-            signin: false,
-            user: {
-                name: "Chad"
+            signin: false
+        }
+    },
+
+    computed: {
+        username: function(){
+            if(this.user === null) {
+                return 'User';
+            } else {
+                return this.user.name;
             }
         }
     },
@@ -105,7 +112,6 @@ export default{
 
         loadUser(data){
             console.log(data);
-            this.user = data;
             this.signin = false;
             this.drawer = false;
             this.$emit('update-user', data);

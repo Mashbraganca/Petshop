@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Toolbar :logged=logged @update-user="send"/>
+    <Toolbar :user=user :logged=logged @update-user="send"/>
   
     <div class="home">
       <h1>Products</h1>
@@ -80,7 +80,7 @@
 import Toolbar from '@/components/Toolbar'
 
 export default {
-  props: ['logged'],
+  props: ['logged', 'user'],
   components: { Toolbar },
 
   data() {

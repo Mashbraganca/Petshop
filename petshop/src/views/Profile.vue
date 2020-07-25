@@ -1,15 +1,29 @@
 <template>
     <v-app>
-        <Toolbar :logged=logged @update-user="send"/>
+        <Toolbar :user=user :logged=logged @update-user="send"/>
         <div>
             <v-container>
                 <v-layout row wrap>
                     <v-flex md3>
                         <v-card-title> <h1>Profile</h1> </v-card-title>
 
-                        <v-avatar size=250px>
-                            <img :src=user.photo alt="Profile Picture">
-                        </v-avatar>
+                        <v-card-text>
+                            <v-avatar size=200px>
+                                <img :src=user.photo alt="Profile Picture">
+                            </v-avatar>
+                        </v-card-text>
+
+                        <v-card-actions>
+                            <v-btn text color="blue" router to="/new" >
+                                <v-icon>mdi-square-edit-outline</v-icon>
+                                Edit
+                            </v-btn>
+
+                            <v-btn text color="red" @click="deleteUser" >
+                                <v-icon>mdi-trash-can-outline</v-icon>
+                                Delete
+                            </v-btn>
+                        </v-card-actions>
                     </v-flex>
 
                     <v-flex md3>
@@ -19,9 +33,6 @@
                             <v-card-text>
                                 <h1>Name</h1>
                                 <span>{{user.name}}</span> <br><br>
-
-                                <h1>Username</h1>
-                                <span>{{user.id}}</span> <br><br>
 
                                 <h2>Email</h2>
                                 <span>{{user.email}}</span> <br><br>
@@ -90,8 +101,11 @@ export default {
             this.$emit('register-user', user);
         },
 
-        delPet(id){
-            console.log(id + " deleted");
+        deleteUser(){
+            //deletar pet referenciado
+            let id = this.user.id;
+            console.log("Delete user " + id);
+            this.send(null);
         }
     }
 }
