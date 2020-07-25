@@ -1,21 +1,27 @@
 <template>
     <v-dialog v-model="popup" max-width="500px">
         <template v-slot:activator="{ on }">
-            <v-btn class="ma-1" :disabled="date.day == -1" outlined text color="blue" v-on="on" small width=10px>
-                <div v-if="date.day != -1">{{date.day+1}}/{{date.month+1}}</div>
-                <div v-else>--/--</div>
-            </v-btn>
+            <div v-if="date.month == currMonth">
+                <v-btn class="" text outlined color="blue" v-on="on" block>
+                    <h2>{{date.day}}</h2>
+                </v-btn>
+            </div>
+            <div v-else>
+                <v-btn class="" disabled text color="grey" v-on="on" block>
+                    <h2>{{date.day}}</h2>
+                </v-btn>
+            </div>
         </template>
         <v-card>
             <v-card-title>
-                <h1>{{date.day+1}}/{{date.month+1}}</h1>
+                <h1>{{date.day}} de {{months[date.month]}}</h1>
             </v-card-title>
 
             <v-container>
                 <v-layout row wrap>
                     <v-flex md6>
                         <v-card flat class="text-center ma-3">
-                            <v-card-title><h3>Morning</h3></v-card-title>
+                            <v-card-title><h3>Manhã</h3></v-card-title>
                             <v-card flat outlined class="text-left ma-2" v-for="(h, index) in am" :key=index>
                                 <v-container pt-0 pb-1><v-layout row wrap>
                                     <v-flex md2>
@@ -24,8 +30,8 @@
 
                                     <v-flex md8>
                                         <div v-if="order(h) == -1">     
-                                            <b>Free!</b> <br>
-                                            <v-btn text small color=blue>Shedule</v-btn>
+                                            <b>Disponível</b> <br>
+                                            <v-btn text small color=blue @click="choose(h)">Agendar</v-btn>
                                         </div>
                                         <div v-else class="grey--text">
                                             <span>{{order(h).name}} <br></span>
@@ -39,17 +45,17 @@
 
                     <v-flex md6>
                         <v-card flat class="text-center ma-3">
-                            <v-card-title><h3>Afternoon</h3></v-card-title>
+                            <v-card-title><h3>Tarde</h3></v-card-title>
                             <v-card flat outlined class="text-left ma-2" v-for="(h, index) in pm" :key=index>
                                 <v-container pt-0 pb-1><v-layout row wrap>
                                     <v-flex md2>
-                                        <span class="grey--text"> {{h}} </span>
+                                        <span class="grey--text"> {{h}}h </span>
                                     </v-flex>
 
                                     <v-flex md8>
                                         <div v-if="order(h) == -1">     
-                                            <b>Free!</b> <br>
-                                            <v-btn text small color=blue @click="getDate()">Shedule</v-btn>
+                                            <b>Disponível</b> <br>
+                                            <v-btn text small color=blue @click="choose(h)">Agendar</v-btn>
                                         </div>
                                         <div v-else class="grey--text">
                                             <span>{{order(h).name}} <br></span>
@@ -65,8 +71,7 @@
         
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue" text @click="popup = false">Cancel</v-btn>
-                <v-btn color="blue" text @click="popup = false">Select</v-btn>
+                <v-btn color="blue" text @click="popup = false">Cancelar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -74,35 +79,33 @@
 
 <script>
 export default {
-    props: ['services', 'week', 'date'],
+    props: ['currMonth', 'date', 'orders'],
 
     data() {
         return {
-            am: ['7h', '8h', '9h', '10h', '11h'],
-            pm: ['13h', '14h', '15h', '16h', '17h'],
+            popup: false,
 
-            servs: [
-                {name: 'X', icon: '/item-placeholder.png', pet: 'Celeste1', user: 'snake', hour:'10h'},
-                {name: 'Y', icon: '/item-placeholder.png', pet: 'Celeste2', user: 'snake', hour:'13h'}
-            ]
+            am: [ 7, 8, 9, 10, 11],
+            pm: [ 13, 14, 15, 16, 17],
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
+             'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+
+            hour: -1
         };
     },
 
     methods: {
         order(hour){
-            for(var i=0; i<this.servs.length; i++){
-                if(this.servs[i].hour == hour)
-                    return this.servs[i];
+            for(var i=0; i<this.orders.length; i++){
+                if(this.orders[i].hour == hour)
+                    return this.orders[i];
             }
             return -1;
         },
 
-        getDate(){
-            var currentDate = new Date();
-            console.log(currentDate);
-
-            var currentDateWithFormat = new Date().toJSON().slice(0,10);
-            console.log(currentDateWithFormat);
+        choose(hour){
+            this.popup = false;
+            this.$emit('schedule', { date: this.date, hour: hour });
         }
     }
 };

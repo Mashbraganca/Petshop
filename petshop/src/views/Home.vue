@@ -6,7 +6,7 @@
       <h1>Products</h1>
       <v-container>
         <v-layout row wrap>
-          <v-flex md3 v-for="product in storage" :key="product.name">
+          <v-flex md3 v-for="product in products" :key="product.name">
             <v-card outlined class="text-center ma-2">
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
@@ -80,22 +80,12 @@
 import Toolbar from '@/components/Toolbar'
 
 export default {
-  props: ['logged', 'user', 'cart'],
+  props: ['logged', 'user', 'products', 'services'],
   components: { Toolbar },
 
   data() {
     return{
-      storage: [
-        { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png'},
-        { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png'},
-        { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png'}
-      ],
-
-      services: [
-        { name: 'X', price: 10.0, icon: '/service-placeholder.png'},
-        { name: 'Y', price: 10.0, icon: '/service-placeholder.png'},
-        { name: 'Z', price: 10.0, icon: '/service-placeholder.png'}
-      ],
+      //
     }
   },
 
