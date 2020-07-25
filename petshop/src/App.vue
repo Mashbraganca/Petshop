@@ -3,12 +3,14 @@
     <v-content>
       <router-view
         :cart=cart
+        :gizmo=gizmo
         :logged=logged
         :user=user
         :products=products
         :services=services
         :orders=orders
         @register-user="getUser"
+        @to-calendar="toCalendar"
         @to-cart="toCart">
       </router-view>
     </v-content>
@@ -24,9 +26,12 @@ export default {
   data: () => ({
     logged: false,
     cart: [],
+    gizmo: null,
+
     //placeholders, can assume null values on final version
     user: { 
-      name: "Solid Snake",
+      name: "Solid",
+      lastName: "Snake",
       photo: './profile-placeholder.png',
       id: "SNAAAAAAAAAAAAAAKE",
       address: "a box",
@@ -87,6 +92,10 @@ export default {
       }
 
       this.cart.push({ name: item.name, id: item.id, price: item.price, qtd: 1 });
+    },
+
+    toCalendar(service){
+      this.gizmo = service;
     }
   }
 };

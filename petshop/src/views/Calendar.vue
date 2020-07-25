@@ -28,13 +28,19 @@
 
         <v-flex md5>
             <h1>Informações Adicionais</h1>
-
-            <v-card v-if="hour !== null" flat dark color="light-blue darken-3">
+            <v-card v-if="gizmo !== null" flat dark color="light-blue darken-3">
                 <v-layout row>
                     <span class="ml-4">
-                        <h2>Dia {{hour.date.day}} de {{months[hour.date.month]}} às {{hour.hour}} hs</h2>
+                        <h2>Agendar {{ gizmo.name }}</h2>
                     </span>
-                    
+                </v-layout>
+            </v-card>
+
+            <v-card v-if="hour !== null" color="blue--text" outlined >
+                <v-layout row>
+                    <span class="ml-4">
+                        <h2>{{hour.date.day}} de {{months[hour.date.month]}} às {{hour.hour}} hs</h2>
+                    </span>
                 </v-layout>
             </v-card>
 
@@ -60,8 +66,8 @@
 
             <v-card-actions>
                 <v-spacer></v-spacer>
+                <v-btn color="blue" text @click="cancel">Cancelar</v-btn>
                 <v-btn color="blue" text @click="save">Agendar</v-btn>
-                
             </v-card-actions>
         </v-flex>
     </v-layout></v-container>
@@ -73,7 +79,7 @@ import Toolbar from '@/components/Toolbar'
 import Day from '@/components/Day'
 
 export default {
-  props: ['logged', 'user', 'services', 'orders'],
+  props: ['logged', 'user', 'services', 'orders', 'gizmo'],
   components: { Toolbar, Day },
 
   data() {
@@ -128,6 +134,11 @@ export default {
 
         schedule(data){
             this.hour = data;
+        },
+
+        cancel(){
+            this.$emit('to-calendar', null);
+            this.$router.push('/');
         },
 
         save(){

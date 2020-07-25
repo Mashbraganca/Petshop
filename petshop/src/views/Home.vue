@@ -57,7 +57,7 @@
 
               <div v-show="logged">
                 <v-card-actions>
-                  <v-btn text small left color="blue" @click="buy()">
+                  <v-btn text small left color="blue" @click="selectService(service)">
                     <span>Schedule</span>
                   </v-btn>
                 </v-card-actions>
@@ -92,6 +92,11 @@ export default {
   methods: {
     send(user){
       this.$emit('register-user', user);
+    },
+
+    selectService(service){
+      this.$emit('to-calendar', service);
+      this.$router.push('/calendar');
     },
 
     addToCart(item){

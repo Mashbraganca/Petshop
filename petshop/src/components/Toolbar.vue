@@ -17,14 +17,14 @@
         </v-app-bar>
 
         <v-navigation-drawer app v-model="drawer" color="#AD97FF" dark>
-            <div v-show="logged">
+            <div v-if="logged">
                 <v-list-item>
                     <v-list-item-avatar>
                         <v-img src="https://randomuser.me/api/portraits/men/3.jpg" alt="profile picture"></v-img>
                     </v-list-item-avatar>
 
                     <v-list-item-content>
-                        <v-list-item-title> {{ username }} </v-list-item-title>
+                        <v-list-item-title> {{ user.name + " " + user.lastName }} </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider></v-divider>
@@ -55,7 +55,7 @@
                 </v-list>
             </div>
 
-            <div v-show="!logged">
+            <div v-else>
                 <Login :popup=signin @login="loadUser" @cancel="signin=false"/>
 
                 <v-list rounded>
@@ -95,22 +95,14 @@ export default {
         }
     },
 
-    computed: {
-        username: function(){
-            if(this.user === null) {
-                return 'User';
-            } else {
-                return this.user.name;
-            }
-        }
-    },
-
     methods: {
         logout(){
+            this.drawer=false;
             this.$emit('update-user', null);
         },
 
         loadUser(data){
+            this.drawer=false;
             console.log(data);
             this.signin = false;
             this.drawer = false;
@@ -118,6 +110,7 @@ export default {
         },
 
         sendTo(path){
+            this.drawer=false;
             this.$router.push(path);
         }
     }

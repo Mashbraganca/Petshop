@@ -12,18 +12,11 @@
                   <h1>Login Info</h1>
               </v-card-title>
 
-              <v-card-text>
-                  <v-text-field label="Full Name*" v-model="name" required></v-text-field>
-                  <v-text-field label="Password*" v-model="password" type="password" required></v-text-field>
-                  <v-text-field label="Confirm Password*" v-model="confirmPassword" type="password" required></v-text-field>
-
-                  <div class="text-left">
-                      <v-avatar left size=100px>
-                          <img :src=photo alt="Profile Picture">
-                      </v-avatar>
-
-                      <v-btn color="blue" text @click="uploadPhoto"> Upload Image</v-btn>
-                  </div>
+              <v-card-text class="my-4">
+                <v-text-field label="First Name*" v-model="name" required></v-text-field>
+                <v-text-field label="Last Name*" v-model="lastName" required></v-text-field>
+                <v-text-field label="Password*" v-model="password" type="password" required></v-text-field>
+                <v-text-field label="Confirm Password*" v-model="confirmPassword" type="password" required></v-text-field>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -35,9 +28,25 @@
               </v-card-title>
 
               <v-card-text>
-                  <v-text-field label="Email*" v-model="email" required></v-text-field>
-                  <v-text-field label="Phone" v-model="phone" ></v-text-field>
-                  <v-text-field label="Address" v-model="address" ></v-text-field>
+                <v-container><v-layout row>
+                  <v-flex md6>
+                    <v-text-field label="Email*" v-model="email" required></v-text-field>
+                    <v-text-field label="Phone" v-model="phone" ></v-text-field>
+                  </v-flex>
+
+                  <v-flex md6>
+                    <div class="text-left my-6 ml-3">
+                      <v-avatar left size=100px>
+                          <img :src=photo alt="Profile Picture">
+                      </v-avatar>
+
+                      <v-btn color="blue" text @click="uploadPhoto"> Upload Image</v-btn>
+                    </div>
+                  </v-flex>
+
+                  <v-flex md12><v-text-field label="Address" v-model="address" ></v-text-field></v-flex>
+                </v-layout></v-container>
+                  
               </v-card-text>
 
               <v-card-actions>
@@ -66,6 +75,7 @@ export default {
       photo: './profile-placeholder.png',
 
       name: '',
+      lastName: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -88,6 +98,7 @@ export default {
 
       let data = {
         name: this.name,
+        lastName: this.lastName,
         email: this.email,
         password: this.password,
         phone: this.phone,

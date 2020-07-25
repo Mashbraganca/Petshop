@@ -41,7 +41,8 @@ export default {
             if (validLogin) {
                 //replace the placeholder JSON with a user info JSON
                 this.$emit('login', { 
-                    name: "Solid Snake",
+                    name: "Solid",
+                    lastName: "Snake",
                     photo: './profile-placeholder.png',
                     id: "SNAAAAAAAAAAAAAAKE",
                     address: "a box",
