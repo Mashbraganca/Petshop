@@ -1,6 +1,6 @@
 <template>
   <v-app style=" background: #AD97FF ">
-    <NavbarAdm/>
+    <NavbarAdm :user="user" @update-user="send"/>
     <div class="admin">
       <div><v-row>a</v-row></div>
       <div>
@@ -23,7 +23,6 @@
             </v-container>
 
             <h1 class="ml-10">Serviços</h1>
-
             <v-container>
                 <v-layout row wrap justify-center>
                 <v-flex md3 v-for="service in services" :key="service.id">
@@ -61,5 +60,11 @@ export default {
   data: () => ({
     //
   }),
+
+  methods: { 
+    send(user){
+      this.$emit('register-user', user);
+    }
+  }
 };
 </script>

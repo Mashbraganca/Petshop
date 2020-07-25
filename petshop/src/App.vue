@@ -9,6 +9,7 @@
         :products=products
         :services=services
         :orders=orders
+        :admins=admins
         @register-user="getUser"
         @to-calendar="toCalendar"
         @to-cart="toCart">
@@ -60,6 +61,11 @@ export default {
     orders: [
       {name: 'X', icon: '/item-placeholder.png', pet: 'Celeste1', user: 'snake', hour:10},
       {name: 'Y', icon: '/item-placeholder.png', pet: 'Celeste2', user: 'snake', hour:13}
+    ],
+
+    admins: [
+      {name: "Solid", lastName: "Snake", photo: './profile-placeholder.png', id: "1", phone: "0", email: "solid@snake.com" },
+      {name: "Liquid", lastName: "Snake", photo: './profile-placeholder.png', id: "2", phone: "0", email: "liquid@snake.com" },
     ]
   }),
 

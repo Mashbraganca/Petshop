@@ -3,9 +3,9 @@
     <Toolbar :user=user :logged=logged @update-user="send"/>
   
     <div class="home">
-      <h1>Products</h1>
+      <h1 class="ml-10">Produtos</h1>
       <v-container>
-        <v-layout row wrap>
+        <v-layout row wrap justify-center>
           <v-flex md3 v-for="product in products" :key="product.name">
             <v-card outlined class="text-center ma-2">
               <v-responsive class="pt-3">
@@ -37,10 +37,9 @@
 
 
 
-      <h1>Services</h1>
+      <h1 class="ml-10">Serviços</h1>
       <v-container>
-
-        <v-layout row wrap>
+        <v-layout row wrap justify-center>
           <v-flex md3 v-for="service in services" :key="service.id">
             <v-card outlined class="text-center ma-2" >
               <v-responsive class="pt-3">
