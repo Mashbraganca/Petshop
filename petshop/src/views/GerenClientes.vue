@@ -63,7 +63,7 @@
                         
                         <v-container>
                             <v-layout row wrap>
-                                <v-flex md3 v-for="pet in item.pets" :key="pet.id">
+                                <v-flex md3 v-for="pet in petList[item.id]" :key="pet.id">
                                     <v-card flat class="text-center ma-2" outlined>
                                         <v-responsive class="pt-4">
                                             <v-avatar size=100px center>
@@ -101,11 +101,29 @@ import Popup from '@/components/Pet'
 export default {
     name: 'App',
     components: { NavbarAdm, Popup },
-    props: ['user', 'customers'],
+    props: ['user', 'customers', 'pets'],
 
     data: () => ({
         //    
     }),
+
+    computed: {
+        petList: function(){
+            let list = {};
+
+            for (var i=0; i<this.customers.length; i++){
+                let id = this.customers[i].id;
+                list[id] = [];
+
+                for(var j=0; j<this.pets.length; j++) {
+                    if(this.pets[j].owner == id)
+                        list[id].push(this.pets[j]);
+                }
+            }
+
+            return list;
+        }
+    },
 
     methods: { 
         send(user){

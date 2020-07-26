@@ -50,7 +50,7 @@
                         <v-card-title> <h2>My Pets</h2></v-card-title>
                         <v-container>
                             <v-layout row wrap>
-                                <v-flex md4 v-for="pet in user.pets" :key="pet.id">
+                                <v-flex md4 v-for="pet in petList" :key="pet.id">
                                     <v-card flat class="text-center ma-2" outlined>
                                         <v-responsive class="pt-4">
                                             <v-avatar size=100px center>
@@ -62,7 +62,7 @@
                                             <div class="headline blue--text"> {{pet.name}} </div>
                                             <div class="subheadline"> {{pet.race}} </div>
                                             <div class="subheadline"> <b>Idade:</b> {{pet.age}}y </div>
-                                            <Popup @update-pet="send" :user=user :pet=pet />
+                                            <Popup @update-pet="updatePet" :user=user :pet=pet />
                                         </v-card-text>
 
                                     </v-card>
@@ -70,7 +70,7 @@
                             </v-layout>
                         </v-container>
                         <v-card-actions>
-                            <Popup @update-pet="send" :user=user :pet=null />
+                            <Popup @update-pet="updatePet" :user=user :pet=null />
                         </v-card-actions>
                     </v-flex>
                 </v-layout>
@@ -87,7 +87,7 @@ import Toolbar from '@/components/Toolbar'
 
 export default {
     components: {Popup, Toolbar },
-    props: ['logged', 'user'],
+    props: ['logged', 'user', 'pets'],
 
     data () {
         return {
@@ -96,9 +96,26 @@ export default {
 
     },
 
+    computed: {
+        petList: function(){
+            let list = [];
+            for (var i=0; i<this.pets.length; i++){
+                if(this.pets[i].owner == this.user.id)
+                    list.push(this.pets[i]);
+            }
+
+            return list;
+        }
+    },
+
     methods: {
         send(user){
             this.$emit('register-user', user);
+        },
+
+        updatePet(pet){
+            console.log(pet);
+            this.$emit('refresh', 'pets');
         },
 
         deleteUser(){

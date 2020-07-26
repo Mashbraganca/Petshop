@@ -108,17 +108,20 @@ export default {
             } else if (this.cart.length <= 0) {
                 alert("O carrinho precisa ter ao menos um item");
             } else {
-                for(var i=this.cart.length - 1; i>=0; i--){
-                    //descontar quantidades do estoque e aumentar dos vendidos
-                    console.log(this.cart[i].qtd + " " + this.cart[i].name + " purchased");
-                    this.$emit('to-cart', this.cart[i], -this.cart[i].qtd);
-
-
-
-
-
+                let today = new Date();
+                let data = {
+                    cart: this.cart,
+                    date: {
+                        day: today.getDate(),
+                        month: today.getMonth()
+                    }
                 }
 
+                //salvar serviço
+                console.log(data);
+                console.log("Itens Purchased");
+
+                this.$emit('to-cart', null,  0);
                 alert("Compra efetuada com sucesso!");
                 this.$router.push('/');
             }

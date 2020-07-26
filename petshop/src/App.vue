@@ -3,7 +3,7 @@
     <v-content>
       <router-view
         :cart=cart :gizmo=gizmo :logged=logged :user=user :target=target
-        :products=products :services=services :customers=customers :orders=orders :admins=admins
+        :products=products :services=services :customers=customers :pets=pets :orders=orders :admins=admins
         @register-user="getUser" @set-target="setTarget" @refresh="refresh" @to-calendar="toCalendar" @to-cart="toCart">
       </router-view>
     </v-content>
@@ -30,13 +30,7 @@ export default {
       id: "SNAAAAAAAAAAAAAAKE",
       address: "a box",
       phone: "000000000",
-      email: "snake.SNAAAAKE@gmail.com",
-
-      pets: [
-        {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-        {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-        {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-      ]
+      email: "snake.SNAAAAKE@gmail.com"
     },
 
     products: [
@@ -69,13 +63,7 @@ export default {
         id: "SNAAAAAAAAAAAAAAKE",
         address: "a box",
         phone: "000000000",
-        email: "snake.SNAAAAKE@gmail.com",
-
-        pets: [
-          {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-          {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-          {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-        ]
+        email: "snake.SNAAAAKE@gmail.com"
       },
       
       {
@@ -85,12 +73,14 @@ export default {
         id: "SNAAAAAAAAAAAAAAKE2",
         address: "a box",
         phone: "000000000",
-        email: "snake.SNAAAAKE@gmail.com",
-
-        pets: [
-          {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-        ]
+        email: "snake.SNAAAAKE@gmail.com"
       }  
+    ],
+
+    pets: [
+      {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
+      {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
+      {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE2"}
     ]
   }),
 
@@ -109,6 +99,11 @@ export default {
     },
 
     toCart(item, qtd) {
+      if (item === null){
+        this.cart = [];
+        return;
+      }
+
       for(var i=0; i<this.cart.length; i++){
         if (this.cart[i].id == item.id){
           this.cart[i].qtd += qtd;

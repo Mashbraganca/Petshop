@@ -106,8 +106,9 @@ export default {
             if (valid){
                 this.popup = false;
                 //dar um get user para atualizar os dados
-                let user = this.user;
-                this.$emit('update-pet', user);
+                let pet = this.pet;
+
+                this.$emit('update-pet', pet);
             } else {
                 alert("Informações inválidas");
             }
@@ -124,8 +125,9 @@ export default {
             if (valid){
                 this.popup = false;
                 //dar um get user para atualizar os dados
-                let user = this.user;
-                this.$emit('update-pet', user);
+                let pet = this.pet;
+
+                this.$emit('update-pet', pet);
             } else {
                 alert("Informações inválidas");
             }
@@ -136,9 +138,9 @@ export default {
             let id = this.user.id;
             console.log("Delete pet " + this.pet.id + " of user " + id);
             //dar um get user para atualizar os dados
-            let user = this.user;
+            let pet = this.pet;
 
-            this.$emit('update-pet', user);
+            this.$emit('update-pet', pet);
         }
     }
 };
