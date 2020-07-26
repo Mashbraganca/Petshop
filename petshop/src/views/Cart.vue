@@ -53,8 +53,11 @@
             <v-flex md10 ma-3>
                 
 
-                <v-card-actions>
-                    <v-text-field label="Credit Card*" v-model="credit" required></v-text-field>
+                <v-card-actions v-if="cart.length > 0">
+                    <v-form v-model="valid">
+                        <v-text-field label="Credit Card*" v-model="credit" :rules="creditRules" required></v-text-field>
+                    </v-form>
+                    
                     <v-spacer></v-spacer>
                     <v-btn color="blue" text @click="buy">Comprar</v-btn>
                     </v-card-actions>
@@ -75,7 +78,12 @@ export default {
 
     data() {
         return{
-            credit: ''
+            valid: false,
+            credit: '',
+            creditRules: [
+                v => !!v || 'Requer cartão de crédito',
+                v => /^[0-9]*$/.test(v) || 'Insira um número válido'
+            ],
         }
     },
 
@@ -103,29 +111,28 @@ export default {
         },
 
         buy(){
-            if(this.credit.length <= 0) {
-                alert("O cartão de crédito é necessário");
-            } else if (this.cart.length <= 0) {
-                alert("O carrinho precisa ter ao menos um item");
-            } else {
-                let today = new Date();
-                let data = {
-                    cart: this.cart,
-                    date: {
-                        day: today.getDate(),
-                        month: today.getMonth()
-                    }
-                }
-
-                //salvar serviço
-                console.log(data);
-                console.log("Itens Purchased");
-
-                this.$emit('to-cart', null,  0);
-                alert("Compra efetuada com sucesso!");
-                this.$emit('refresh', 'purchases');
-                this.$router.push('/');
+            if(!this.valid) {
+                alert("Insira um número de cartão de crédito válido");
+                return;
             }
+
+            let today = new Date();
+            let data = {
+                cart: this.cart,
+                date: {
+                    day: today.getDate(),
+                    month: today.getMonth()
+                }
+            }
+
+            //salvar serviço
+            console.log(data);
+            console.log("Itens Purchased");
+
+            this.$emit('to-cart', null,  0);
+            alert("Compra efetuada com sucesso!");
+            this.$emit('refresh', 'purchases');
+            this.$router.push('/');
         }
     }
 }

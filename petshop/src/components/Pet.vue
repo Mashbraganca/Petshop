@@ -27,9 +27,11 @@
                     <v-flex md6>
                         <v-card flat class="text-center ma-3">
                             <v-card-text>
-                                <v-text-field label="Name*" v-model="name" required></v-text-field>
-                                <v-text-field label="Race*" v-model="race" required></v-text-field>
-                                <v-text-field label="Age" v-model="age"></v-text-field>
+                                <v-form v-model="valid">
+                                    <v-text-field label="Name*" v-model="name" :rules="nameRules" required></v-text-field>
+                                    <v-text-field label="Race*" v-model="race" :rules="raceRules" required></v-text-field>
+                                    <v-text-field label="Age" v-model="age" :rules="ageRules" ></v-text-field>
+                                </v-form>
                             </v-card-text>
                         </v-card>
                     </v-flex>
@@ -65,10 +67,23 @@ export default {
     props: [ 'user', 'pet' ],
     data() {
         return {
+            valid: false,
             popup: false,
             name: '',
+            nameRules: [
+                v => !!v || 'Requer nome',
+                v => v.length <= 30 || 'Nome tem que ter menos que 30 caracteres',
+            ],
             race: '',
+            raceRules: [
+                v => !!v || 'Requer raça',
+                v => v.length <= 30 || 'Raça tem que ter menos que 30 caracteres',
+            ],
             age: '',
+            ageRules: [
+                v => !!v || 'Requer idade',
+                v => /^[0-9]*$/.test(v)   || ' Idade tem que ser um número válido'
+            ],
             photo: './pet-placeholder.png',
         };
     },
@@ -80,6 +95,11 @@ export default {
         },
 
         submit(){
+            if(!this.valid){
+                alert("Por favor preencha os campos com dados válidos");
+                return;
+            }
+
             let data = {
                 name: this.name,
                 race: this.race,

@@ -22,12 +22,9 @@
               <div v-show="logged">
                 <v-card-actions>
                   <v-btn text small left color="blue" @click="addToCart(product)">
-                    <span>Buy</span>
+                    <span>Comprar</span>
                   </v-btn>
                 </v-card-actions>
-              </div>
-              <div v-show="!logged">
-                <p class="grey--text" >Login to Buy</p>
               </div>
             </v-card>
           </v-flex>
@@ -57,12 +54,9 @@
               <div v-show="logged">
                 <v-card-actions>
                   <v-btn text small left color="blue" @click="selectService(service)">
-                    <span>Schedule</span>
+                    <span>Agendar</span>
                   </v-btn>
                 </v-card-actions>
-              </div>
-              <div v-show="!logged">
-                <p class="grey--text" >Login to Schedule</p>
               </div>
 
             </v-card>

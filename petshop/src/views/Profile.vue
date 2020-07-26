@@ -31,16 +31,16 @@
 
                         <v-card flat class="text-left ma-3">
                             <v-card-text>
-                                <h1>Name</h1>
+                                <h1>Nome</h1>
                                 <span>{{user.name}}</span> <br><br>
 
-                                <h2>Email</h2>
+                                <h2>E-mail</h2>
                                 <span>{{user.email}}</span> <br><br>
 
-                                <h2>Address</h2>
+                                <h2>Endereço</h2>
                                 <span>{{user.address}}</span> <br><br>
 
-                                <h2>Phone</h2>
+                                <h2>Telefone</h2>
                                 <span>{{user.phone}}</span> <br><br>
                             </v-card-text>
                         </v-card>

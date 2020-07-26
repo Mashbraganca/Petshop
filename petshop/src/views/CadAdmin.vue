@@ -15,8 +15,8 @@
                 <v-col cols="12" md="6">
                   <v-text-field v-model="firstname" :rules="nameRules" label="Nome" required></v-text-field>
                   <v-text-field v-model="lastname" :rules="lastnameRules" label="Sobrenome" required></v-text-field>
-                  <v-text-field v-model="password" :rules="passwordRules" label="Senha" required></v-text-field>
-                  <v-text-field v-model="confpassword" :rules="[confRules]" label="Confirmar Senha" required></v-text-field>
+                  <v-text-field v-model="password" :rules="passwordRules" label="Senha" type="password" required></v-text-field>
+                  <v-text-field v-model="confpassword" :rules="[confRules]" label="Confirmar Senha" type="password" required></v-text-field>
                 
                   <v-btn text color="blue" class="my-4" router to="/admins">Cancel</v-btn>
                   <v-btn color="blue" @click="submit">Save</v-btn>
