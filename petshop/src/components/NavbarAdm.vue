@@ -32,57 +32,20 @@
                 <v-list-group prepend-icon="mdi-account-circle" color="deep-purple darken-4">
                     <template v-slot:activator><v-list-item-title> Usuários </v-list-item-title></template>
 
+                    <v-list-item-group class="ml-4">
+                        <v-list-item @click="sendTo('/GerenAdmin')">
+                            <v-list-item-title> Administradores </v-list-item-title>
+                            <v-list-item-icon><v-icon>mdi-crown-outline</v-icon></v-list-item-icon>
+                        </v-list-item>
+                    </v-list-item-group>
 
 
-
-
-                    <v-list-group no-action sub-group color="deep-purple darken-4">
-                        <template v-slot:activator>
-                            <v-list-item-content>
-                                <v-list-item-title>Administradores</v-list-item-title>
-                            </v-list-item-content>
-                        </template>
-
-                        <v-list-item-group>
-                            <v-list-item @click="sendTo('/AdminReg')" >
-                                <v-list-item-title>Registrar</v-list-item-title>
-                                <v-list-item-icon><v-icon>mdi-clipboard-account-outline</v-icon></v-list-item-icon>
-                            </v-list-item>
-                        </v-list-item-group>
-
-                        <v-list-item-group>
-                            <v-list-item @click="sendTo('/GerenAdmin')">
-                                <v-list-item-title>Gerenciar</v-list-item-title>
-                                <v-list-item-icon><v-icon>mdi-account-box-multiple</v-icon></v-list-item-icon>
-                            </v-list-item>
-                        </v-list-item-group>
-                    </v-list-group>
-
-
-
-
-
-                    <v-list-group no-action sub-group color="deep-purple darken-4">
-                        <template v-slot:activator>
-                            <v-list-item-content>
-                                <v-list-item-title>Clientes</v-list-item-title>
-                            </v-list-item-content>
-                        </template>
-
-                        <v-list-item-group>
-                            <v-list-item @click="sendTo('/ClientReg')">
-                                <v-list-item-title>Registrar</v-list-item-title>
-                                <v-list-item-icon><v-icon>mdi-clipboard-account-outline</v-icon></v-list-item-icon>
-                            </v-list-item>
-                        </v-list-item-group>
-
-                        <v-list-item-group>
-                            <v-list-item @click="sendTo('/GerenClientes')">
-                                <v-list-item-title>Gerenciar</v-list-item-title>
-                                <v-list-item-icon><v-icon>mdi-account-box-multiple</v-icon></v-list-item-icon>
-                            </v-list-item>
-                        </v-list-item-group>
-                    </v-list-group>
+                    <v-list-item-group class="ml-4">
+                        <v-list-item @click="sendTo('/GerenClientes')">
+                            <v-list-item-title> Clientes </v-list-item-title>
+                            <v-list-item-icon><v-icon>mdi-clipboard-account-outline</v-icon></v-list-item-icon>
+                        </v-list-item>
+                    </v-list-item-group>
                 </v-list-group>
 
 

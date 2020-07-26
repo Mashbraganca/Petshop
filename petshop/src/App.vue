@@ -2,20 +2,9 @@
   <v-app>
     <v-content>
       <router-view
-        :cart=cart
-        :gizmo=gizmo
-        :logged=logged
-        :user=user
-        :target=target
-        :products=products
-        :services=services
-        :orders=orders
-        :admins=admins
-        @register-user="getUser"
-        @set-target="setTarget"
-        @refresh="refresh"
-        @to-calendar="toCalendar"
-        @to-cart="toCart">
+        :cart=cart :gizmo=gizmo :logged=logged :user=user :target=target
+        :products=products :services=services :customers=customers :orders=orders :admins=admins
+        @register-user="getUser" @set-target="setTarget" @refresh="refresh" @to-calendar="toCalendar" @to-cart="toCart">
       </router-view>
     </v-content>
 
@@ -70,6 +59,38 @@ export default {
     admins: [
       {name: "Solid", lastName: "Snake", photo: './profile-placeholder.png', id: "1", phone: "0", email: "solid@snake.com" },
       {name: "Liquid", lastName: "Snake", photo: './profile-placeholder.png', id: "2", phone: "0", email: "liquid@snake.com" },
+    ],
+
+    customers: [
+      {
+        name: "Solid",
+        lastName: "Snake",
+        photo: './profile-placeholder.png',
+        id: "SNAAAAAAAAAAAAAAKE",
+        address: "a box",
+        phone: "000000000",
+        email: "snake.SNAAAAKE@gmail.com",
+
+        pets: [
+          {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
+          {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
+          {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
+        ]
+      },
+      
+      {
+        name: "Liquid",
+        lastName: "Snake",
+        photo: './profile-placeholder.png',
+        id: "SNAAAAAAAAAAAAAAKE2",
+        address: "a box",
+        phone: "000000000",
+        email: "snake.SNAAAAKE@gmail.com",
+
+        pets: [
+          {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
+        ]
+      }  
     ]
   }),
 
@@ -136,6 +157,11 @@ export default {
         case 'orders':
           //dar get na lista de pedidos
           console.log("Order List Updated!");
+          break;
+
+        case 'pets':
+          //dar get na lista de pedidos
+          console.log("Pet List Updated!");
           break;
       }
     }

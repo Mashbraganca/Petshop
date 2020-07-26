@@ -4,7 +4,11 @@
       <div class="AdminReg">
         <div><v-row>a</v-row></div>
         <v-card class="mx-auto" elevation-15 max-width="80%">
-          <v-card-title primary-title> <h1>Novo administrador</h1> </v-card-title>
+          <v-card-title primary-title>
+            <div v-if="this.target === null"><h1>Novo administrador</h1> </div>
+            <div v-else><h1>Editar administrador</h1> </div>
+
+          </v-card-title>
           <v-form v-model="valid">
             <v-container grid-list-xs>
               <v-row>
@@ -14,7 +18,7 @@
                   <v-text-field v-model="password" :rules="passwordRules" label="Senha" required></v-text-field>
                   <v-text-field v-model="confpassword" :rules="[confRules]" label="Confirmar Senha" required></v-text-field>
                 
-                  <v-btn text color="blue" @click="sendTo('/')" class="my-4">Cancel</v-btn>
+                  <v-btn text color="blue" class="my-4" router to="/GerenAdmin">Cancel</v-btn>
                   <v-btn color="blue" @click="submit">Save</v-btn>
                 </v-col>
 
@@ -57,36 +61,36 @@ export default {
 
   data: () => ({
     valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Requer nome',
-        v => v.length <= 15 || 'Nome tem que ter menos que 15 caracteres',
-      ],
-      lastnameRules: [
-        v => !!v || 'Requer sobrenome',
-        v => v.length <= 30 || 'Sobrenome tem que ter menos que 30 caracteres',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'Requer E-mail',
-        v => /.+@.+/.test(v) || 'Insira um e-mail válido',
-      ],
-      phone: '',
-      phoneRules: [
-        v => /^[0-9]*$/.test(v) || 'Insira um número válido'
-      ],
-      password: '',
-      confpassword: '',
-      passwordRules: [
-        v => !!v || 'Requer senha',
-        v => v.length >= 8 || 'Nome tem que ter pelo menos 8 caracteres',
-      ],
+    firstname: '',
+    lastname: '',
+    nameRules: [
+      v => !!v || 'Requer nome',
+      v => v.length <= 15 || 'Nome tem que ter menos que 15 caracteres',
+    ],
+    lastnameRules: [
+      v => !!v || 'Requer sobrenome',
+      v => v.length <= 30 || 'Sobrenome tem que ter menos que 30 caracteres',
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'Requer E-mail',
+      v => /.+@.+/.test(v) || 'Insira um e-mail válido',
+    ],
+    phone: '',
+    phoneRules: [
+      v => /^[0-9]*$/.test(v) || 'Insira um número válido'
+    ],
+    password: '',
+    confpassword: '',
+    passwordRules: [
+      v => !!v || 'Requer senha',
+      v => v.length >= 8 || 'Nome tem que ter pelo menos 8 caracteres',
+    ],
 
-      photo: './profile-placeholder.png',
-      photoRule: [
-        v=> !v || v.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',
-      ],
+    photo: './profile-placeholder.png',
+    photoRule: [
+      v=> !v || v.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',
+    ],
   }),
 
   computed: {

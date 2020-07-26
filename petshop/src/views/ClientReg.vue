@@ -1,133 +1,53 @@
 <template>
   <v-app style=" background: #AD97FF ">
-    <NavbarAdm/>
-    <div class="client">
-      <div><v-row>a</v-row></div>
+    <NavbarAdm :user="user" @update-user="send"/>
       <div class="ClientReg">
-        <v-card 
-        class="ma-auto"
-        elevation-15
-        max-width="900"
-        >
+        <div><v-row>a</v-row></div>
+        <v-card class="mx-auto" elevation-15 max-width="80%">
           <v-card-title primary-title>
-            Registrar novo cliente:
+            <div v-if="this.target === null"><h1>Novo cliente</h1> </div>
+            <div v-else><h1>Editar cliente</h1> </div>
+
           </v-card-title>
           <v-form v-model="valid">
             <v-container grid-list-xs>
               <v-row>
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field 
-                  v-model="name"
-                  :rules="nameRules"
-                  :counter="15"
-                  label="Nome"
-                  required
-                  ></v-text-field>
+                <v-col cols="12" md="6">
+                  <v-text-field v-model="firstname" :rules="nameRules" label="Nome" required></v-text-field>
+                  <v-text-field v-model="lastname" :rules="lastnameRules" label="Sobrenome" required></v-text-field>
+                  <v-text-field v-model="password" :rules="passwordRules" label="Senha" required></v-text-field>
+                  <v-text-field v-model="confpassword" :rules="[confRules]" label="Confirmar Senha" required></v-text-field>
+
+                  <v-btn text color="blue" class="my-4" router to="/GerenAdmin">Cancel</v-btn>
+                  <v-btn color="blue" @click="submit">Save</v-btn>
                 </v-col>
 
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field 
-                  v-model="lastname"
-                  :rules="lastnameRules"
-                  :counter="30"
-                  label="Sobrenome"
-                  required
-                  ></v-text-field>
+                <v-col cols="12" md="6">
+                  <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                  <v-text-field v-model="phone" :rules="phoneRules" label="Telefone" required></v-text-field>
+                  <v-text-field v-model="address" label="Enredeço"></v-text-field>
+
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <v-avatar size=160px> <img :src=photo alt="Profile Picture"></v-avatar>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                      <v-file-input
+                        accept="image/png, image/jpeg, image/bmp"
+                        prepend-icon="mdi-camera"
+                        :rules="photoRule"
+                        hide-input
+                        rounded
+                      ></v-file-input>
+                    </v-col>
+                  </v-row>
                 </v-col>
-
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    required
-                  ></v-text-field>
-
-                </v-col>
-                
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    v-model="phone"
-                    :rules="phoneRules"
-                    label="Telefone"
-                    required
-                  ></v-text-field>
-
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="12"
-                >
-                  <v-text-field
-                    v-model="endereço"
-                    
-                    label="Endereço"
-                    
-                  ></v-text-field>
-
-                </v-col>
-
-                <v-col
-                cols="12"
-                md="1"
-                ></v-col>
-                
-                <v-col
-                  cols="12"
-                  md="3"
-                >
-                  <v-avatar size=160px>
-                    <img :src=photo alt="Profile Picture">
-                  </v-avatar>
-
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="8"
-                >
-                  <v-file-input
-                    :rules="rules"
-                    accept="image/png, image/jpeg, image/bmp"
-                    placeholder="Escolha uma foto"
-                    prepend-icon="mdi-camera"
-                    label="Foto de Profile"
-                  ></v-file-input>
-                </v-col>
-
-                <v-col
-                cols="12"
-                md="8"
-                ></v-col>
-
-                <v-col
-                cols="12"
-                md="4"
-                >
-                  <v-btn large color="primary">Submeter</v-btn>
-                </v-col>
-
-
               </v-row>
             </v-container>
           </v-form>
 
         </v-card>
       </div>
-      <div><v-row>a</v-row></div>
-    </div>
   </v-app>
   
 </template>
@@ -138,34 +58,91 @@ import NavbarAdm from '@/components/NavbarAdm'
 export default {
   name: 'App',
   components: { NavbarAdm },
-  
+  props: ['user', 'target'],
 
   data: () => ({
     valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Requer nome',
-        v => v.length <= 15 || 'Nome tem que ter menos que 15 caracteres',
-      ],
-      lastnameRules: [
-        v => !!v || 'Requer sobrenome',
-        v => v.length <= 30 || 'Sobrenome tem que ter menos que 30 caracteres',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
-      phone: '',
-      phoneRules: [
-        v => !!v || 'Requer número de telefone',
-        v => /^[0-9]*$/.test(v)   || 'Número tem que ser válido'
-      ],
-      photo: './profile-placeholder.png',
-      photoRule: [
-        value => !value || value.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',
-      ],
+    firstname: '',
+    lastname: '',
+    address: '',
+    nameRules: [
+      v => !!v || 'Requer nome',
+      v => v.length <= 15 || 'Nome tem que ter menos que 15 caracteres',
+    ],
+    lastnameRules: [
+      v => !!v || 'Requer sobrenome',
+      v => v.length <= 30 || 'Sobrenome tem que ter menos que 30 caracteres',
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'Requer E-mail',
+      v => /.+@.+/.test(v) || 'Insira um e-mail válido',
+    ],
+    phone: '',
+    phoneRules: [
+      v => /^[0-9]*$/.test(v) || 'Insira um número válido'
+    ],
+    password: '',
+    confpassword: '',
+    passwordRules: [
+      v => !!v || 'Requer senha',
+      v => v.length >= 8 || 'Nome tem que ter pelo menos 8 caracteres',
+    ],
+
+    photo: './profile-placeholder.png',
+    photoRule: [
+      v=> !v || v.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',
+    ],
   }),
+
+  computed: {
+    confRules() {
+      return () => (this.password === this.confpassword) || 'As senhas precisam conicidir'
+    }
+  },
+
+  methods: {
+    send(user){
+        this.$emit('register-user', user);
+    },
+
+    addCustomer(data){
+      //adicionar administrador
+      let name = data.name;
+      console.log(name + " created!");
+
+
+
+      this.$emit('refresh', 'customers');
+    },
+
+    editCustomer(data){
+      //editar administrador
+      console.log(this.target.id + " updated to " + data.name);
+
+
+
+      this.$emit('refresh', 'customers');
+    },
+
+    submit(){
+      if (!this.valid){
+        alert("Por favor preencha os campos com dados válidos");
+        return;
+      }
+
+      let data = {
+        name: this.firstname,
+        lastName: this.lastname,
+        email: this.email,
+        address: this.address,
+        photo: this.photo,
+        phone: this.phone
+      }
+
+      if (this.target == null) this.addCustomer(data);
+      else this.editCustomer(data);
+    }
+  }
 };
 </script>

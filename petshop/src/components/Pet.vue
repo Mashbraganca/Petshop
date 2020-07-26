@@ -118,7 +118,7 @@ export default {
 
             //editar pet referenciado
             let valid = true;
-            console.log("Update pet " + this.pet.id + ") of user " + id);
+            console.log("Update pet " + this.pet.id + " of user " + id);
             console.log(data);
 
             if (valid){
