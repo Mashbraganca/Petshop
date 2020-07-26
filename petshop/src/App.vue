@@ -166,6 +166,12 @@ export default {
           //dar get na lista de pedidos
           console.log("Pet List Updated!");
           break;
+
+        case 'categories':
+          //dar get na lista de categorias
+          console.log("Category List Updated!");
+          break;
+
       }
     }
   }
