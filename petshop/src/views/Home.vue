@@ -44,7 +44,7 @@
             <v-card outlined class="text-center ma-2" >
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
-                  <img :src=service.icon :alt=service.name>
+                  <img :src=service.photo :alt=service.name>
                 </v-avatar>
                 
               </v-responsive>

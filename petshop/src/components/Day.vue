@@ -79,7 +79,7 @@
 
 <script>
 export default {
-    props: ['currMonth', 'date', 'orders'],
+    props: ['currMonth', 'date', 'orders', 'services', 'customers', 'pets'],
 
     data() {
         return {
@@ -98,8 +98,12 @@ export default {
         order(hour){
             for(var i=0; i<this.orders.length; i++){
                 let orderDate = {day: this.orders[i].date.getDate(), month: this.orders[i].date.getMonth(), }
-                if(orderDate.day == this.date.day && orderDate.month == this.date.month && this.orders[i].hour == hour)
-                    return this.orders[i];
+                if(orderDate.day == this.date.day && orderDate.month == this.date.month && this.orders[i].hour == hour){
+                    let user = this.getCustomerById(this.orders[i].customer);
+                    let pet = this.getPetById(this.orders[i].pet);
+                    let serv = this.getServiceById(this.orders[i].service);
+                    return { user: user.name + " " + user.lastName, name: serv.name, pet: pet.name };
+                }
             }
             return -1;
         },
@@ -107,6 +111,32 @@ export default {
         choose(hour){
             this.popup = false;
             this.$emit('schedule', { date: this.date, hour: hour });
+        },
+
+
+        //placeholder
+        getCustomerById(id){
+            for (var i=0; i<this.customers.length; i++){
+                if(this.customers[i].id == id){
+                return this.customers[i];
+                }
+            }
+        },
+        //placeholder
+        getServiceById(id){
+            for (var i=0; i<this.services.length; i++){
+                if(this.services[i].id == id){
+                return this.services[i];
+                }
+            }
+        },
+        //placeholder
+        getPetById(id){
+            for (var i=0; i<this.pets.length; i++){
+                if(this.pets[i].id == id){
+                return this.pets[i];
+                }
+            }
         }
     }
 };

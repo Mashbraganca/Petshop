@@ -16,6 +16,9 @@
                                     :date="getDate((j-1)*7 + i, m)"
                                     :currMonth="m+firstMonth-1"
                                     :orders=orders
+                                    :services=services
+                                    :customers=customers
+                                    :pets=pets
                                     @schedule="schedule"/>
                             </v-card>
                         </v-col>
@@ -46,18 +49,10 @@
 
             <v-select
                 v-model="pet"
-                :items="user.pets"
+                :items="petNames"
                 item-text="name"
+                item-value="id"
                 label="Selecione um pet"
-                return-object
-                single-line
-            ></v-select>
-
-            <v-select
-                v-model="service"
-                :items="services"
-                item-text="name"
-                label="Selecione um serviço"
                 return-object
                 single-line
             ></v-select>
@@ -79,7 +74,7 @@ import Toolbar from '@/components/Toolbar'
 import Day from '@/components/Day'
 
 export default {
-  props: ['logged', 'user', 'services', 'orders', 'gizmo'],
+  props: ['logged', 'user', 'gizmo', 'services', 'orders', 'customers', 'pets'],
   components: { Toolbar, Day },
 
   data() {
@@ -89,8 +84,7 @@ export default {
         'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
       pet: null,
       hour: null,
-      credit: '',
-      service: null,
+      credit: ''
     }
   },
 
@@ -103,7 +97,12 @@ export default {
 
         petNames () {
             let names = [];
-            for (var i=0; i<this.user.pets.length; i++) names.push(this.user.pets[i].name);
+            
+            for(var i=0; i<this.pets.length; i++){
+                if (this.pets[i].owner == this.user.id)
+                    names.push(this.pets[i]);
+            }
+
             return names;
         }
   },
@@ -144,15 +143,14 @@ export default {
         save(){
             if (this.hour === null) alert("Por favor escolha um horário");
             else if (this.pet === null) alert("Por favor escolha um pet");
-            else if (this.service === null) alert("Por favor escolha um serviço");
             else if (this.credit.length <= 0) alert("O cartão de crédito é necessário");
             else {
                 let data = {
-                    user: this.user.id,
+                    customer: this.user.id,
                     pet: this.pet.id,
                     date: this.hour.date,
                     hour: this.hour.hour,
-                    service: this.service.id
+                    service: this.gizmo.id
                 }
                 //salvar serviço
                 console.log(data);

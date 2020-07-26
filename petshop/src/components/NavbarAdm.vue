@@ -61,25 +61,18 @@
 
                     <v-list-item-group class="ml-4">
                         <v-list-item @click="sendTo('/products')">
-                            <v-list-item-title>Produtos</v-list-item-title>
+                            <v-list-item-title>Catálogo</v-list-item-title>
                             <v-list-item-icon><v-icon>mdi-package-variant-closed</v-icon></v-list-item-icon>
                         </v-list-item>
                     </v-list-item-group>
                 </v-list-group>
 
-
-
-
-                <v-list-group prepend-icon="mdi-dog-service" color="deep-purple darken-4">
-                    <template v-slot:activator><v-list-item-title> Serviços </v-list-item-title></template>
-
-                    <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/services')">
-                            <v-list-item-title> Oferecidos </v-list-item-title>
-                                <v-list-item-icon><v-icon>mdi mdi-heart-multiple-outline</v-icon></v-list-item-icon>
-                        </v-list-item>
-                    </v-list-item-group>                       
-                </v-list-group>
+                <v-list-item-group color="deep-purple darken-4">
+                    <v-list-item @click="sendTo('/services')">
+                        <v-list-item-icon><v-icon>mdi-dog-service</v-icon></v-list-item-icon>
+                        <v-list-item-content><v-list-item-title>Serviços</v-list-item-title></v-list-item-content>
+                    </v-list-item>
+                </v-list-item-group>
             
                 <v-list-item-group color="deep-purple darken-4">
                     <v-list-item @click="sendTo('/status')">

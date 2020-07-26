@@ -4,7 +4,7 @@
       <router-view
         :cart=cart :gizmo=gizmo :logged=logged :user=user :target=target
         :products=products :services=services :customers=customers :pets=pets
-        :admins=admins :categories=categories :orders=orders
+        :admins=admins :categories=categories :orders=orders :purchases=purchases
         @register-user="getUser" @set-target="setTarget" @refresh="refresh" @to-calendar="toCalendar" @to-cart="toCart">
       </router-view>
     </v-content>
@@ -35,20 +35,26 @@ export default {
     },
 
     products: [
-      { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png', storage: 20, category: 'Acessório', description: 'estrela'},
+      { name: 'A', id: '1', price: 3.0, photo: '/item-placeholder.png', storage: 20, category: 'Acessório', description: 'estrela'},
       { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png', storage: 60, category: 'Acessório', description: 'estrela'},
       { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png', storage: 10, category: 'Acessório', description: 'estrela'}
     ],
 
     services: [
         { name: 'X', price: 10.0, photo: '/service-placeholder.png', id: 1, description: 'esmeralda roxa'},
-        { name: 'Y', price: 10.0, photo: '/service-placeholder.png', id: 2, description: 'esmeralda roxa'},
+        { name: 'Y', price: 11.0, photo: '/service-placeholder.png', id: 2, description: 'esmeralda roxa'},
         { name: 'Z', price: 10.0, photo: '/service-placeholder.png', id: 3, description: 'esmeralda roxa'}
     ],
 
     orders: [
-      {name: 'X', icon: '/item-placeholder.png', pet: 'Celeste1', user: 'snake', date: new Date(2020, 6, 28), hour:10},
-      {name: 'Y', icon: '/item-placeholder.png', pet: 'Celeste2', user: 'snake', date: new Date(2020, 6, 30), hour:13}
+      {name: 'X', service: 1, icon: '/item-placeholder.png', pet: 'noossaa1', customer: "SNAAAAAAAAAAAAAAKE",  user: 'snake', date: new Date(2020, 6, 28), hour:10},
+      {name: 'Y', service: 2, icon: '/item-placeholder.png', pet: 'noossaa2', customer: "SNAAAAAAAAAAAAAAKE", user: 'snake', date: new Date(2020, 6, 30), hour:13}
+    ],
+
+    purchases: [
+      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '1', qtd: 7}, {product: '2', qtd: 20}], date: new Date(2020, 6, 28) },
+      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '1', qtd: 14}], date: new Date(2020, 6, 29) },
+      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '2', qtd: 10}], date: new Date(2020, 6, 30) }
     ],
 
     admins: [
@@ -170,6 +176,11 @@ export default {
         case 'categories':
           //dar get na lista de categorias
           console.log("Category List Updated!");
+          break;
+
+        case 'purchases':
+          //dar get na lista de compras
+          console.log("Purchase List Updated!");
           break;
 
       }

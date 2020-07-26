@@ -123,6 +123,7 @@ export default {
 
                 this.$emit('to-cart', null,  0);
                 alert("Compra efetuada com sucesso!");
+                this.$emit('refresh', 'purchases');
                 this.$router.push('/');
             }
         }
