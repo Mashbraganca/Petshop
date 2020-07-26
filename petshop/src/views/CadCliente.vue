@@ -135,11 +135,11 @@ export default {
 
       let data = {
         name: this.firstname,
-        lastName: this.lastname,
+        sobrenome: this.lastname,
         email: this.email,
-        address: this.address,
-        photo: this.photo,
-        phone: this.phone
+        endereço: this.address,
+        image: this.photo,
+        telefone: this.phone
       }
 
       if (this.target == null) this.addCustomer(data);

@@ -26,75 +26,75 @@ export default {
     //placeholders, can assume null values on final version
     user: { 
       name: "Solid",
-      lastName: "Snake",
-      photo: './profile-placeholder.png',
+      sobrenome: "Snake",
+      image: './profile-placeholder.png',
       id: "SNAAAAAAAAAAAAAAKE",
-      address: "a box",
-      phone: "000000000",
+      endereço: "a box",
+      telefone: "000000000",
       email: "snake.SNAAAAKE@gmail.com"
     },
 
     products: [
-      { name: 'A', id: '1', price: 3.0, photo: '/item-placeholder.png', storage: 20, category: 'Acessório', description: 'estrela'},
-      { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png', storage: 60, category: 'Acessório', description: 'estrela'},
-      { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png', storage: 10, category: 'Acessório', description: 'estrela'}
+      { name: 'A', id: '1', preço: 3.0, image: '/item-placeholder.png', quantidade: 20, categoria: 'Acessório', descrição: 'estrela'},
+      { name: 'B', id: '2', preço: 1.0, image: '/item-placeholder.png', quantidade: 60, categoria: 'Acessório', descrição: 'estrela'},
+      { name: 'C', id: '3', preço: 1.0, image: '/item-placeholder.png', quantidade: 10, categoria: 'Acessório', descrição: 'estrela'}
     ],
 
     services: [
-        { name: 'X', price: 10.0, photo: '/service-placeholder.png', id: 1, description: 'esmeralda roxa'},
-        { name: 'Y', price: 11.0, photo: '/service-placeholder.png', id: 2, description: 'esmeralda roxa'},
-        { name: 'Z', price: 10.0, photo: '/service-placeholder.png', id: 3, description: 'esmeralda roxa'}
+        { name: 'X', preço: 10.0, image: '/service-placeholder.png', id: 1, descrição: 'esmeralda roxa'},
+        { name: 'Y', preço: 11.0, image: '/service-placeholder.png', id: 2, descrição: 'esmeralda roxa'},
+        { name: 'Z', preço: 10.0, image: '/service-placeholder.png', id: 3, descrição: 'esmeralda roxa'}
     ],
 
     orders: [
-      {name: 'X', service: 1, icon: '/item-placeholder.png', pet: 'noossaa1', customer: "SNAAAAAAAAAAAAAAKE",  user: 'snake', date: new Date(2020, 6, 28), hour:10},
-      {name: 'Y', service: 2, icon: '/item-placeholder.png', pet: 'noossaa2', customer: "SNAAAAAAAAAAAAAAKE", user: 'snake', date: new Date(2020, 6, 30), hour:13}
+      {itens: [{serviço: 1}], pet: 'noossaa1', usuario: "SNAAAAAAAAAAAAAAKE", criarData: new Date(2020, 6, 28), criarHora:10},
+      {itens: [{serviço: 2}], pet: 'noossaa2', usuario: "SNAAAAAAAAAAAAAAKE", criarData: new Date(2020, 6, 30), criarHora:13}
     ],
 
     purchases: [
-      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '1', qtd: 7}, {product: '2', qtd: 20}], date: new Date(2020, 6, 28) },
-      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '1', qtd: 14}], date: new Date(2020, 6, 29) },
-      { customer: "SNAAAAAAAAAAAAAAKE", items: [{product: '2', qtd: 10}], date: new Date(2020, 6, 30) }
+      { usuario: "SNAAAAAAAAAAAAAAKE", itens: [{produto: '1', quantidade: 7}, {produto: '2', quantidade: 20}], criarData: new Date(2020, 6, 28) },
+      { usuario: "SNAAAAAAAAAAAAAAKE", itens: [{produto: '1', quantidade: 14}], criarData: new Date(2020, 6, 29) },
+      { usuario: "SNAAAAAAAAAAAAAAKE", itens: [{produto: '2', quantidade: 10}], criarData: new Date(2020, 6, 30) }
     ],
 
     admins: [
-      {name: "Solid", lastName: "Snake", photo: './profile-placeholder.png', id: "1", phone: "0", email: "solid@snake.com" },
-      {name: "Liquid", lastName: "Snake", photo: './profile-placeholder.png', id: "2", phone: "0", email: "liquid@snake.com" },
+      {name: "Solid", sobrenome: "Snake", image: './profile-placeholder.png', id: "1", telefone: "0", email: "solid@snake.com" },
+      {name: "Liquid", sobrenome: "Snake", image: './profile-placeholder.png', id: "2", telefone: "0", email: "liquid@snake.com" },
     ],
 
     customers: [
       {
         name: "Solid",
-        lastName: "Snake",
-        photo: './profile-placeholder.png',
+        sobrenome: "Snake",
+        image: './profile-placeholder.png',
         id: "SNAAAAAAAAAAAAAAKE",
-        address: "a box",
-        phone: "000000000",
+        endereço: "a box",
+        telefone: "000000000",
         email: "snake.SNAAAAKE@gmail.com"
       },
       
       {
         name: "Liquid",
-        lastName: "Snake",
-        photo: './profile-placeholder.png',
+        sobrenome: "Snake",
+        image: './profile-placeholder.png',
         id: "SNAAAAAAAAAAAAAAKE2",
-        address: "a box",
-        phone: "000000000",
+        endereço: "a box",
+        telefone: "000000000",
         email: "snake.SNAAAAKE@gmail.com"
       }  
     ],
 
     pets: [
-      {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
-      {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
-      {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE2"}
+      {name: 'Pet1', id: 'noossaa1', image: './pet-placeholder.png', raça: 'Celeste', idade: 42, idcliente: "SNAAAAAAAAAAAAAAKE"},
+      {name: 'Pet2', id: 'noossaa2', image: './pet-placeholder.png', raça: 'Celeste', idade: 42, idcliente: "SNAAAAAAAAAAAAAAKE"},
+      {name: 'Pet3', id: 'noossaa3', image: './pet-placeholder.png', raça: 'Celeste', idade: 42, idcliente: "SNAAAAAAAAAAAAAAKE2"}
     ],
 
     categories: [
-      'Ração',
-      'Acessório',
-      'Remédios',
-      'Outros'
+      {name: 'Ração'},
+      {name: 'Acessório'},
+      {name: 'Remédios'},
+      {name: 'Outros'}
     ]
   }),
 
@@ -120,8 +120,8 @@ export default {
 
       for(var i=0; i<this.cart.length; i++){
         if (this.cart[i].id == item.id){
-          this.cart[i].qtd += qtd;
-          if (this.cart[i].qtd <= 0){
+          this.cart[i].quantidade += qtd;
+          if (this.cart[i].quantidade <= 0){
             //remove element from cart
             for(var j=i+1; j<this.cart.length; j++){ this.cart[j-1] = this.cart[j]; }
             this.cart.pop();
@@ -130,7 +130,7 @@ export default {
         }
       }
 
-      this.cart.push({ name: item.name, id: item.id, price: item.price, qtd: 1 });
+      this.cart.push({ name: item.name, id: item.id, preço: item.preço, quantidade: 1 });
     },
 
     toCalendar(service){

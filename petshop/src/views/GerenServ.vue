@@ -28,14 +28,14 @@
                     <v-row>
                         <v-col cols="12" md="3">
                             <v-avatar size=160px>
-                                <img :src=item.photo alt="Profile Picture">
+                                <img :src=item.image alt="Profile Picture">
                             </v-avatar>
                         </v-col>
 
                         <v-col cols="12" md="5">
                             <v-card-text class="my-4">
                                 <h2>Descrição</h2>
-                                <span>{{item.description}}</span>
+                                <span>{{item.descrição}}</span>
                             </v-card-text>
 
                             <v-btn large text color="blue" @click="edit(item)" >
@@ -52,7 +52,7 @@
                         <v-col cols="12" md="4">
                             <v-card-text class="my-4">
                                 <h2>Preço</h2>
-                                <span>{{"R$ " + item.price}}</span>
+                                <span>{{"R$ " + item.preço}}</span>
                             </v-card-text>
                         </v-col>
                     </v-row>
@@ -93,7 +93,7 @@ export default {
         },
 
         del(serv){
-            //deletar admin referenciado
+            //deletar serviço referenciado
             console.log("Deleting " + serv.name);
 
 

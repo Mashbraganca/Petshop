@@ -136,7 +136,7 @@ export default {
             let names = [];
             
             for(var i=0; i<this.pets.length; i++){
-                if (this.pets[i].owner == this.user.id)
+                if (this.pets[i].idcliente == this.user.id)
                     names.push(this.pets[i]);
             }
 
@@ -182,11 +182,14 @@ export default {
             else if (!this.valid) alert("Preencha dos campos com dados válidos");
             else {
                 let data = {
-                    customer: this.user.id,
+                    usuario: this.user.id,
                     pet: this.pet.id,
-                    date: this.hour.date,
-                    hour: this.hour.hour,
-                    service: this.select.id
+                    criarData: this.hour.date,
+                    criarHora: this.hour.hour,
+                    itens:{
+                        serviço: this.service.id,
+                        preço: this.service.preço
+                    }  
                 }
                 //salvar serviço
                 console.log(data);

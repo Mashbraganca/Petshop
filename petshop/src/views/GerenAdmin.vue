@@ -22,13 +22,13 @@
             </v-card>
 
             <v-card v-for="item in admins" :key="item.id" class="mx-auto my-6" max-width="80%">
-                <v-card-title class="ml-4"> <h1>{{ item.name + " " + item.lastName }}</h1></v-card-title>
+                <v-card-title class="ml-4"> <h1>{{ item.name + " " + item.sobrenome }}</h1></v-card-title>
 
                 <v-container grid-list-xs class="ml-4">
                     <v-row>
                         <v-col cols="12" md="3">
                             <v-avatar size=160px>
-                                <img :src=item.photo alt="Profile Picture">
+                                <img :src=item.image alt="Profile Picture">
                             </v-avatar>
                         </v-col>
 
@@ -52,7 +52,7 @@
                         <v-col cols="12" md="4">
                             <v-card-text class="my-4">
                                 <h2>Telefone</h2>
-                                <span>{{item.phone}}</span>
+                                <span>{{item.telefone}}</span>
                             </v-card-text>
                         </v-col>
                     </v-row>

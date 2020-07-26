@@ -9,7 +9,7 @@
 
                         <v-card-text>
                             <v-avatar size=200px>
-                                <img :src=user.photo alt="Profile Picture">
+                                <img :src=user.image alt="Profile Picture">
                             </v-avatar>
                         </v-card-text>
 
@@ -38,10 +38,10 @@
                                 <span>{{user.email}}</span> <br><br>
 
                                 <h2>Endereço</h2>
-                                <span>{{user.address}}</span> <br><br>
+                                <span>{{user.endereço}}</span> <br><br>
 
                                 <h2>Telefone</h2>
-                                <span>{{user.phone}}</span> <br><br>
+                                <span>{{user.telefone}}</span> <br><br>
                             </v-card-text>
                         </v-card>
                     </v-flex>
@@ -54,14 +54,14 @@
                                     <v-card flat class="text-center ma-2" outlined>
                                         <v-responsive class="pt-4">
                                             <v-avatar size=100px center>
-                                                <img :src=pet.photo :alt=pet.race>
+                                                <img :src=pet.image :alt=pet.name>
                                             </v-avatar>
                                         </v-responsive>
 
                                         <v-card-text>
                                             <div class="headline blue--text"> {{pet.name}} </div>
-                                            <div class="subheadline"> {{pet.race}} </div>
-                                            <div class="subheadline"> <b>Idade:</b> {{pet.age}}y </div>
+                                            <div class="subheadline"> {{pet.raça}} </div>
+                                            <div class="subheadline"> <b>Idade:</b> {{pet.idade}}y </div>
                                             <Popup @update-pet="updatePet" :user=user :pet=pet />
                                         </v-card-text>
 
@@ -100,7 +100,7 @@ export default {
         petList: function(){
             let list = [];
             for (var i=0; i<this.pets.length; i++){
-                if(this.pets[i].owner == this.user.id)
+                if(this.pets[i].idcliente == this.user.id)
                     list.push(this.pets[i]);
             }
 

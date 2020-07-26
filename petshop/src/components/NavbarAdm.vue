@@ -23,7 +23,7 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                    <v-list-item-title> {{ user.name + " " + user.lastName }} </v-list-item-title>
+                    <v-list-item-title> {{ user.name + " " + user.sobrenome }} </v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
             <v-divider></v-divider>

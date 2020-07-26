@@ -157,16 +157,16 @@ export default {
       let id = [], buffer = {};
 
       for (var i=0; i<this.purchases.length; i++){
-        let cart = this.purchases[i].items;
+        let cart = this.purchases[i].itens;
         for(var j=0; j<cart.length; j++){
-          if (!id.includes(cart[j].product)){
+          if (!id.includes(cart[j].produto)){
             //get product by id
-            let item = this.getProductById(cart[j].product);
-            id.push(cart[j].product);
-            buffer[cart[j].product] = { name: item.name, price: item.price, qtd: 0};
+            let item = this.getProductById(cart[j].produto);
+            id.push(cart[j].produto);
+            buffer[cart[j].produto] = { name: item.name, price: item.preço, qtd: 0};
           }
 
-          buffer[cart[j].product].qtd += cart[j].qtd;
+          buffer[cart[j].produto].qtd += cart[j].quantidade;
         }
       }
 
@@ -193,17 +193,17 @@ export default {
       for (var i=0; i<this.purchases.length; i++){
         let purchase = this.purchases[i];
         //get customer by id
-        let user = this.getCustomerById(purchase.customer);
+        let user = this.getCustomerById(purchase.usuario);
 
         let items = [], total = 0;
-        for(var j=0; j<purchase.items.length; j++){
+        for(var j=0; j<purchase.itens.length; j++){
           //get product by id
-          let item = this.getProductById(purchase.items[j].product);
-          total += item.price * purchase.items[j].qtd;
-          items.push({ id: j, name:item.name, qtd: purchase.items[j].qtd });
+          let item = this.getProductById(purchase.itens[j].produto);
+          total += item.preço * purchase.itens[j].quantidade;
+          items.push({ id: j, name:item.name, qtd: purchase.itens[j].quantidade });
         }
         console.log(items);
-        list.push({ id: i, customer: user.name, cart: items, date: purchase.date, total: total });
+        list.push({ id: i, customer: user.name + " " + user.sobrenome, cart: items, date: purchase.criarData, total: total });
       }
 
       return list;
@@ -217,14 +217,15 @@ export default {
       let id = [], buffer = {};
 
       for (var i=0; i<this.orders.length; i++){
-        if (!id.includes(this.orders[i].service)){
+        let service = this.orders[i].itens[0].serviço;
+        if (!id.includes(service)){
           //get service by id
-          let serv = this.getServiceById(this.orders[i].service);
-          id.push(this.orders[i].service);
-          buffer[this.orders[i].service] = { name: serv.name, price: serv.price, qtd: 0};
+          let serv = this.getServiceById(service);
+          id.push(service);
+          buffer[service] = { name: serv.name, price: serv.preço, qtd: 0};
         }
 
-        buffer[this.orders[i].service].qtd ++; 
+        buffer[service].qtd ++; 
       }
 
       let list = [];
@@ -250,11 +251,11 @@ export default {
       for (var i=0; i<this.orders.length; i++){
         let order = this.orders[i];
         //get customer by id
-        let user = this.getCustomerById(order.customer);
+        let user = this.getCustomerById(order.usuario);
         let pet = this.getPetById(order.pet);
-        let serv = this.getServiceById(order.service);
+        let serv = this.getServiceById(order.itens[0].serviço);
 
-        list.push({ id: i, customer: user.name, pet: pet.name, date: order.date, service: serv.name, total: serv.price });
+        list.push({ id: i, customer: user.name + " " + user.sobrenome, pet: pet.name, date: order.criarData, service: serv.name, total: serv.preço });
       }
 
       return list;

@@ -10,13 +10,13 @@
             <v-card outlined class="text-center ma-2">
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
-                  <img :src=product.photo :alt=product.name>
+                  <img :src=product.image :alt=product.name>
                 </v-avatar>
               </v-responsive>
 
               <v-card-text>
                 <div class="display-1"> {{product.name}} </div>
-                <div class="headline blue--text"> R$ {{product.price}} </div>
+                <div class="headline blue--text"> R$ {{product.preço}} </div>
               </v-card-text>
 
               <div v-show="logged">
@@ -41,14 +41,14 @@
             <v-card outlined class="text-center ma-2" >
               <v-responsive class="pt-3">
                 <v-avatar size=150px>
-                  <img :src=service.photo :alt=service.name>
+                  <img :src=service.image :alt=service.name>
                 </v-avatar>
                 
               </v-responsive>
 
               <v-card-text>
                 <div class="display-1"> {{service.name}} </div>
-                <div class="headline blue--text"> R$ {{service.price}} </div>
+                <div class="headline blue--text"> R$ {{service.preço}} </div>
               </v-card-text>
 
               <div v-show="logged">

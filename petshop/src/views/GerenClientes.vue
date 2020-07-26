@@ -22,13 +22,13 @@
             </v-card>
 
             <v-card v-for="item in customers" :key="item.id" class="mx-auto my-6" max-width="80%">
-                <v-card-title class="ml-4"> <h1>{{ item.name + " " + item.lastName }}</h1></v-card-title>
+                <v-card-title class="ml-4"> <h1>{{ item.name + " " + item.sobrenome }}</h1></v-card-title>
 
                 <v-container grid-list-xs class="ml-4">
                     <v-row>
                         <v-col cols="12" md="3">
                             <v-avatar size=160px>
-                                <img :src=item.photo alt="Profile Picture">
+                                <img :src=item.image alt="Profile Picture">
                             </v-avatar>
                         </v-col>
 
@@ -39,14 +39,14 @@
 
                                 <br><br>
                                 <h2>Endereço</h2>
-                                <span>{{item.address}}</span>
+                                <span>{{item.endereço}}</span>
                             </v-card-text>
                         </v-col>
 
                         <v-col cols="12" md="4">
                             <v-card-text class="my-4">
                                 <h2>Telefone</h2>
-                                <span>{{item.phone}}</span>
+                                <span>{{item.telefone}}</span>
                             </v-card-text>
 
                             <v-btn text color="blue" @click="edit(item)" >
@@ -67,14 +67,14 @@
                                     <v-card flat class="text-center ma-2" outlined>
                                         <v-responsive class="pt-4">
                                             <v-avatar size=100px center>
-                                                <img :src=pet.photo :alt=pet.race>
+                                                <img :src=pet.image :alt=pet.name>
                                             </v-avatar>
                                         </v-responsive>
 
                                         <v-card-text>
                                             <div class="headline blue--text"> {{pet.name}} </div>
-                                            <div class="subheadline"> {{pet.race}} </div>
-                                            <div class="subheadline"> <b>Idade:</b> {{pet.age}}y </div>
+                                            <div class="subheadline"> {{pet.raça}} </div>
+                                            <div class="subheadline"> <b>Idade:</b> {{pet.idade}}y </div>
                                             <Popup @update-pet="updatePet" :user=item :pet=pet />
                                         </v-card-text>
                                     </v-card>
@@ -116,7 +116,7 @@ export default {
                 list[id] = [];
 
                 for(var j=0; j<this.pets.length; j++) {
-                    if(this.pets[j].owner == id)
+                    if(this.pets[j].idcliente == id)
                         list[id].push(this.pets[j]);
                 }
             }

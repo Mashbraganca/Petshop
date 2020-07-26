@@ -102,10 +102,10 @@ export default {
 
             let data = {
                 name: this.name,
-                race: this.race,
-                id: this.id,
-                age: this.age,
-                photo: this.photo
+                raça: this.race,
+                idcliente: this.user.id,
+                idade: this.age,
+                image: this.photo
             }
 
             if (this.pet === null){

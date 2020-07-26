@@ -120,11 +120,11 @@ export default {
 
       let data = {
         name: this.name,
-        description: this.desc,
-        category: this.select,
-        storage: this.quantidade,
-        photo: this.photo,
-        price: this.price
+        descrição: this.desc,
+        categoria: this.select,
+        quantidade: this.quantidade,
+        image: this.photo,
+        preço: this.price
       }
 
       if (this.target == null) this.addItem(data);

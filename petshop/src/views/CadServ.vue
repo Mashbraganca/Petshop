@@ -123,9 +123,9 @@ export default {
 
       let data = {
         name: this.name,
-        description: this.desc,
-        photo: this.photo,
-        price: this.price
+        descrição: this.desc,
+        image: this.photo,
+        preço: this.price
       }
 
       if (this.target == null) this.addService(data);

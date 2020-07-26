@@ -39,10 +39,10 @@ export default {
             if (this.username == "admin" && this.password == "admin"){
                 this.$emit('login', {
                     name: "Solid",
-                    lastName: "Snake",
-                    photo: './profile-placeholder.png',
+                    sobrenome: "Snake",
+                    image: './profile-placeholder.png',
                     id: "SNAAAAAAAAAAAAAAKE",
-                    phone: "000000000",
+                    telefone: "000000000",
                     email: "snake.SNAAAAKE@gmail.com"
                 });
 
@@ -55,18 +55,12 @@ export default {
                 //replace the placeholder JSON with a user info JSON
                 this.$emit('login', { 
                     name: "Solid",
-                    lastName: "Snake",
-                    photo: './profile-placeholder.png',
+                    sobrenome: "Snake",
+                    image: './profile-placeholder.png',
                     id: "SNAAAAAAAAAAAAAAKE",
-                    address: "a box",
-                    phone: "000000000",
-                    email: "snake.SNAAAAKE@gmail.com",
-
-                    pets: [
-                        {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-                        {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42},
-                        {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42}
-                    ]
+                    endereço: "a box",
+                    telefone: "000000000",
+                    email: "snake.SNAAAAKE@gmail.com"
                 });
             } else {
                 alert("Username ou senha inválidos");

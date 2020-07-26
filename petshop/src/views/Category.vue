@@ -18,9 +18,9 @@
 
             </v-card>
 
-            <v-card v-for="item in categories" :key="item" class="mx-auto my-6" max-width="80%">
+            <v-card v-for="(item, index) in categories" :key="index" class="mx-auto my-6" max-width="80%">
                 <v-card-title class="ml-4">
-                  <h2>{{ item }}</h2>
+                  <h2>{{ item.name }}</h2>
                   <v-spacer></v-spacer>
 
                   <v-btn large icon color="red" @click="del(item)">
@@ -56,7 +56,7 @@ export default {
 
         add(cat){
           //adicionar categoria
-          console.log(cat + " created!");
+          console.log(cat.name + " created!");
 
 
 
@@ -66,7 +66,7 @@ export default {
 
         del(cat){
           //deletar admin referenciado
-          console.log("Deleting " + cat);
+          console.log("Deleting " + cat.name);
 
 
 

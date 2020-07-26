@@ -133,10 +133,10 @@ export default {
 
       let data = {
         name: this.firstname,
-        lastName: this.lastname,
+        sobrenome: this.lastname,
         email: this.email,
-        photo: this.photo,
-        phone: this.phone
+        image: this.photo,
+        telefone: this.phone
       }
 
       if (this.target == null) this.addAdmin(data);

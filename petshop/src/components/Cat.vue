@@ -44,7 +44,7 @@ export default {
     methods: {
         submit(){
             if (this.valid){
-                this.$emit('add', this.name);
+                this.$emit('add', { name: this.name});
                 this.popup = false;
             }
         }

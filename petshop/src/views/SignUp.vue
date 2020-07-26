@@ -129,12 +129,12 @@ export default {
 
       let data = {
         name: this.name,
-        lastName: this.lastName,
+        sobrenome: this.lastName,
         email: this.email,
-        password: this.password,
-        phone: this.phone,
-        photo: this.photo,
-        address: this.address
+        senha: this.password,
+        telefone: this.phone,
+        image: this.photo,
+        endereço: this.address
       }
 
       if (this.user === null){

@@ -97,12 +97,12 @@ export default {
     methods: {
         order(hour){
             for(var i=0; i<this.orders.length; i++){
-                let orderDate = {day: this.orders[i].date.getDate(), month: this.orders[i].date.getMonth(), }
-                if(orderDate.day == this.date.day && orderDate.month == this.date.month && this.orders[i].hour == hour){
-                    let user = this.getCustomerById(this.orders[i].customer);
+                let orderDate = {day: this.orders[i].criarData.getDate(), month: this.orders[i].criarData.getMonth() }
+                if(orderDate.day == this.date.day && orderDate.month == this.date.month && this.orders[i].criarHora == hour){
+                    let user = this.getCustomerById(this.orders[i].usuario);
                     let pet = this.getPetById(this.orders[i].pet);
-                    let serv = this.getServiceById(this.orders[i].service);
-                    return { user: user.name + " " + user.lastName, name: serv.name, pet: pet.name };
+                    let serv = this.getServiceById(this.orders[i].itens[0].serviço);
+                    return { user: user.name + " " + user.sobrenome, name: serv.name, pet: pet.name };
                 }
             }
             return -1;

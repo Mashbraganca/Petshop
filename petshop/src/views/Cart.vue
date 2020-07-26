@@ -21,7 +21,7 @@
                         <v-flex md7 > <span class="headline ml-6">{{item.name}}</span> </v-flex>
 
                         <v-flex md2>
-                            <span class="subheadline">R$ {{item.price}}</span>
+                            <span class="subheadline">R$ {{item.preço}}</span>
                         </v-flex>
 
                         <v-flex md3 class="text-right">
@@ -29,7 +29,7 @@
                                 <v-icon small >mdi-minus</v-icon>
                             </v-btn>
 
-                            <span class="subheadline"> {{item.qtd}}</span>
+                            <span class="subheadline"> {{item.quantidade}}</span>
 
                             <v-btn icon small color="blue" @click="increase(item)">
                                 <v-icon small>mdi-plus</v-icon>
@@ -91,7 +91,7 @@ export default {
         total () {
             var total = 0;
             for(var i=0; i<this.cart.length; i++)
-                total = total + this.cart[i].price * this.cart[i].qtd;
+                total = total + this.cart[i].preço * this.cart[i].quantidade;
             
             return total;
         }
