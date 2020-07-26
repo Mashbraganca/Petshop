@@ -1,108 +1,65 @@
 <template>
   <v-app style=" background: #AD97FF ">
-    <NavbarAdm/>
-    <div class="Serv">
-      <div><v-row>a</v-row></div>
-      <div class="ServReg">
-        <v-card 
-        class="ma-auto"
-        elevation-15
-        max-width="900"
-        >
-          <v-card-title primary-title>
-            Registrar novo serviço:
-          </v-card-title>
-          <v-form v-model="valid">
-            <v-container grid-list-xs>
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field 
-                  v-model="name"
-                  :rules="nameRules"
-                  :counter="30"
-                  label="Nome"
-                  required
-                  ></v-text-field>
-                </v-col>
+    <NavbarAdm :user="user" @update-user="send"/>
+    <div class="Servicos">
+        <div>
+            <v-card class="mx-auto my-6" max-width="80%">
+                <v-row class="ma-0">
+                    <v-col cols="12" md="6">
+                        <h1 class="ml-3"> Serviços </h1>
 
-                
-                
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    v-model="price"
-                    :rules="priceRules"
-                    label="Preço"
-                    required
-                  ></v-text-field>
+                        <v-btn text color="blue" @click="add">
+                            <v-icon>mdi-plus-thick</v-icon>
+                            <span> Adicionar</span>
+                        </v-btn>
+                    </v-col>
 
-                </v-col>
+                    <v-col>
+                        <v-text-field outlined label="Busca" append-icon="mdi-magnify"></v-text-field>
+                    </v-col>
+                </v-row>
 
-                <v-col
-                  cols="12"
-                  md="12"
-                >
-                  <v-text-field
-                    v-model="descrição"
-                    
-                    label="Descrição"
-                    
-                  ></v-text-field>
+            </v-card>
 
-                </v-col>
+            <v-card v-for="item in services" :key="item.id" class="mx-auto my-6" max-width="80%">
+                <v-card-title class="ml-4"> <h1>{{ item.name }}</h1></v-card-title>
 
-                <v-col
-                cols="12"
-                md="1"
-                ></v-col>
-                
-                <v-col
-                  cols="12"
-                  md="3"
-                >
-                  <v-avatar size=160px>
-                    <img :src=photo alt="Profile Picture">
-                  </v-avatar>
+                <v-container grid-list-xs class="ml-4">
+                    <v-row>
+                        <v-col cols="12" md="3">
+                            <v-avatar size=160px>
+                                <img :src=item.photo alt="Profile Picture">
+                            </v-avatar>
+                        </v-col>
 
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="8"
-                >
-                  <v-file-input
-                    :rules="rules"
-                    accept="image/png, image/jpeg, image/bmp"
-                    placeholder="Escolha uma foto"
-                    prepend-icon="mdi-camera"
-                    label="Foto do Produto"
-                  ></v-file-input>
-                </v-col>
+                        <v-col cols="12" md="5">
+                            <v-card-text class="my-4">
+                                <h2>Descrição</h2>
+                                <span>{{item.description}}</span>
+                            </v-card-text>
 
-                <v-col
-                cols="12"
-                md="8"
-                ></v-col>
+                            <v-btn large text color="blue" @click="edit(item)" >
+                                <v-icon>mdi-square-edit-outline</v-icon>
+                                Editar
+                            </v-btn>
 
-                <v-col
-                cols="12"
-                md="4"
-                >
-                  <v-btn large color="primary">Submeter</v-btn>
-                </v-col>
+                            <v-btn large text color="red" @click="del(item)" >
+                                <v-icon>mdi-trash-can-outline</v-icon>
+                                Deletar
+                            </v-btn>
+                        </v-col>
 
-
-              </v-row>
-            </v-container>
-          </v-form>
-
-        </v-card>
-      </div>
-      <div><v-row>a</v-row></div>
+                        <v-col cols="12" md="4">
+                            <v-card-text class="my-4">
+                                <h2>Preço</h2>
+                                <span>{{"R$ " + item.price}}</span>
+                            </v-card-text>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card> 
+        </div>
+        <div><v-row>a</v-row></div>
     </div>
   </v-app>
   
@@ -112,41 +69,38 @@
 import NavbarAdm from '@/components/NavbarAdm'
 
 export default {
-  name: 'App',
-  components: { NavbarAdm },
-  
+    name: 'App',
+    components: { NavbarAdm },
+    props: ['user', 'services'],
 
-  data: () => ({
-    valid: false,
-      firstname: '',
-      quantidade: '',
-      nameRules: [
-        v => !!v || 'Requer nome',
-        v => v.length <= 30 || 'Nome tem que ter menos que 30 caracteres',
-      ],
-      quantidadeRules: [
-        v => !!v || 'Requer quantidade',
-        v => /^[0-9]*$/.test(v)   || 'Número tem que ser válido',
-      ],
-      select: null,
-      category: [
-          'Ração',
-          'Acessório',
-          'Remédios',
-      ],
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
-      price: '',
-      priceRules: [
-        v => !!v || 'Requer preço',
-        v => /^[0-9]*$/.test(v)   || 'Número tem que ser válido'
-      ],
-      photo: 'https://i.pinimg.com/originals/e5/fd/57/e5fd57ea7871c00676e95bbe668cbc8f.jpg',
-      photoRule: [
-        value => !value || value.size < 2000000 || 'A foto de profile tem que ser menos de 2MB!',
-      ],
-  }),
+    data: () => ({
+      //
+    }),
+
+    methods: { 
+        send(user){
+            this.$emit('register-user', user);
+        },
+
+        add(){
+            this.$emit('set-target', null);
+            this.$router.push('/CadServ');
+        },
+
+        edit(serv){
+            this.$emit('set-target', serv);
+            this.$router.push('/CadServ');
+        },
+
+        del(serv){
+            //deletar admin referenciado
+            console.log("Deleting " + serv.name);
+
+
+
+
+            this.$emit('refresh', 'services');
+        }
+    }
 };
 </script>

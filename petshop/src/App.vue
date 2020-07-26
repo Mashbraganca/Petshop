@@ -34,15 +34,15 @@ export default {
     },
 
     products: [
-      { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png'},
-      { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png'},
-      { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png'}
+      { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png', storage: 20, category: 'Power Up', description: 'estrela'},
+      { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png', storage: 60, category: 'Power Up', description: 'estrela'},
+      { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png', storage: 10, category: 'Power Up', description: 'estrela'}
     ],
 
     services: [
-        { name: 'X', price: 10.0, icon: '/service-placeholder.png', id: 1},
-        { name: 'Y', price: 10.0, icon: '/service-placeholder.png', id: 2},
-        { name: 'Z', price: 10.0, icon: '/service-placeholder.png', id: 3}
+        { name: 'X', price: 10.0, photo: '/service-placeholder.png', id: 1, description: 'esmeralda roxa'},
+        { name: 'Y', price: 10.0, photo: '/service-placeholder.png', id: 2, description: 'esmeralda roxa'},
+        { name: 'Z', price: 10.0, photo: '/service-placeholder.png', id: 3, description: 'esmeralda roxa'}
     ],
 
     orders: [

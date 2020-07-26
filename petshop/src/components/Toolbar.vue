@@ -29,8 +29,7 @@
                 <v-divider></v-divider>
 
                 <v-list rounded>
-                    
-                    <v-list-item-group color="deep-purple darken-4">
+                    <v-list-item-group :value="false" color="deep-purple darken-4">
                         <v-list-item @click="sendTo('/profile')">
                             <v-list-item-icon> <v-icon>mdi-badge-account-horizontal</v-icon> </v-list-item-icon>
                             <v-list-item-content> <v-list-item-title>Perfil</v-list-item-title> </v-list-item-content>
