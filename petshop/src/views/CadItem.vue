@@ -17,10 +17,10 @@
               <v-row>
                 <v-col cols="12" md="6">
                   <v-text-field v-model="name" :rules="nameRules" label="Nome" required></v-text-field>
-                  <v-select v-model="select" :items="category" :rules=selectRules label="Categoria" required></v-select>
+                  <v-select v-model="select" :items="categories" :rules=selectRules label="Categoria" required></v-select>
                   <v-text-field v-model="desc" label="Descrição" ></v-text-field>
                   
-                  <v-btn text color="blue" class="my-4" router to="/GerenItens">Cancel</v-btn>
+                  <v-btn text color="blue" class="my-4" router to="/products">Cancel</v-btn>
                   <v-btn color="blue" @click="submit">Save</v-btn>
                 </v-col>
                   <v-row>
@@ -56,7 +56,7 @@ import NavbarAdm from '@/components/NavbarAdm'
 export default {
   name: 'App',
   components: { NavbarAdm },
-  props: ['user', 'target'],
+  props: ['user', 'target', 'categories'],
 
   data: () => ({
     valid: false,
@@ -73,12 +73,7 @@ export default {
       ],
       select: null,
       selectRules: [
-        v => !!v || 'Item is required'
-      ],
-      category: [
-          'Ração',
-          'Acessório',
-          'Remédios',
+        v => !!v || 'Por favor escolha uma categoria'
       ],
       price: '',
       priceRules: [
@@ -104,6 +99,7 @@ export default {
 
 
       this.$emit('refresh', 'products');
+      this.$router.push('/products');
     },
 
     editItem(data){
@@ -113,6 +109,7 @@ export default {
 
 
       this.$emit('refresh', 'products');
+      this.$router.push('/products');
     },
 
     submit(){

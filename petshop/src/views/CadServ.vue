@@ -4,7 +4,7 @@
     <div class="Product">
       <div><v-row>a</v-row></div>
 
-      <div class="ProductReg">
+      <div class="ServReg">
         <div><v-row>a</v-row></div>
         <v-card class="mx-auto" elevation-15 max-width="80%">
           <v-card-title primary-title>
@@ -25,7 +25,7 @@
                     </v-col>
                     
                     <v-col cols="12" md="6">
-                      <v-btn text color="blue" class="my-4" router to="/CatServ">Cancel</v-btn>
+                      <v-btn text color="blue" class="my-4" router to="/services">Cancel</v-btn>
                       <v-btn color="blue" @click="submit">Save</v-btn>
                     </v-col>
                   </v-row>
@@ -102,6 +102,7 @@ export default {
 
 
       this.$emit('refresh', 'services');
+      this.$router.push('/services');
     },
 
     editService(data){
@@ -111,6 +112,7 @@ export default {
 
 
       this.$emit('refresh', 'services');
+      this.$router.push('/services');
     },
 
     submit(){

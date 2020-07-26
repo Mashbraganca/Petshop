@@ -90,12 +90,12 @@ export default {
 
         add(){
             this.$emit('set-target', null);
-            this.$router.push('/CadItem');
+            this.$router.push('/new-product');
         },
 
         edit(item){
             this.$emit('set-target', item);
-            this.$router.push('/CadItem');
+            this.$router.push('/new-product');
         },
 
         del(item){

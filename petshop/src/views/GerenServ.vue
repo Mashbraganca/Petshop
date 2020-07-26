@@ -84,12 +84,12 @@ export default {
 
         add(){
             this.$emit('set-target', null);
-            this.$router.push('/CadServ');
+            this.$router.push('/new-service');
         },
 
         edit(serv){
             this.$emit('set-target', serv);
-            this.$router.push('/CadServ');
+            this.$router.push('/new-service');
         },
 
         del(serv){

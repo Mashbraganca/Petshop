@@ -83,12 +83,12 @@ export default {
 
         add(){
             this.$emit('set-target', null);
-            this.$router.push('/AdminReg');
+            this.$router.push('/new-admin');
         },
 
         edit(admin){
             this.$emit('set-target', admin);
-            this.$router.push('/AdminReg');
+            this.$router.push('/new-admin');
         },
 
         del(admin){

@@ -33,7 +33,7 @@
                     <template v-slot:activator><v-list-item-title> Usuários </v-list-item-title></template>
 
                     <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/GerenAdmin')">
+                        <v-list-item @click="sendTo('/admins')">
                             <v-list-item-title> Administradores </v-list-item-title>
                             <v-list-item-icon><v-icon>mdi-crown-outline</v-icon></v-list-item-icon>
                         </v-list-item>
@@ -41,7 +41,7 @@
 
 
                     <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/GerenClientes')">
+                        <v-list-item @click="sendTo('/customers')">
                             <v-list-item-title> Clientes </v-list-item-title>
                             <v-list-item-icon><v-icon>mdi-clipboard-account-outline</v-icon></v-list-item-icon>
                         </v-list-item>
@@ -53,14 +53,14 @@
                     <template v-slot:activator><v-list-item-title>Produtos</v-list-item-title></template>
 
                     <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/CatItem')">
+                        <v-list-item @click="sendTo('/categories')">
                             <v-list-item-title>Categorias</v-list-item-title>
                             <v-list-item-icon><v-icon>mdi-folder-plus-outline</v-icon></v-list-item-icon>
                         </v-list-item>
                     </v-list-item-group>
 
                     <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/GerenItens')">
+                        <v-list-item @click="sendTo('/products')">
                             <v-list-item-title>Produtos</v-list-item-title>
                             <v-list-item-icon><v-icon>mdi-package-variant-closed</v-icon></v-list-item-icon>
                         </v-list-item>
@@ -74,7 +74,7 @@
                     <template v-slot:activator><v-list-item-title> Serviços </v-list-item-title></template>
 
                     <v-list-item-group class="ml-4">
-                        <v-list-item @click="sendTo('/CatServ')">
+                        <v-list-item @click="sendTo('/services')">
                             <v-list-item-title> Oferecidos </v-list-item-title>
                                 <v-list-item-icon><v-icon>mdi mdi-heart-multiple-outline</v-icon></v-list-item-icon>
                         </v-list-item>
@@ -82,7 +82,7 @@
                 </v-list-group>
             
                 <v-list-item-group color="deep-purple darken-4">
-                    <v-list-item @click="sendTo('/Fat')">
+                    <v-list-item @click="sendTo('/status')">
                         <v-list-item-icon><v-icon>mdi-cash</v-icon></v-list-item-icon>
                         <v-list-item-content><v-list-item-title>Faturamentos</v-list-item-title></v-list-item-content>
                     </v-list-item>

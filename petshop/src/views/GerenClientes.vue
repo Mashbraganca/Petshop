@@ -137,12 +137,12 @@ export default {
 
         add(){
             this.$emit('set-target', null);
-            this.$router.push('/ClientReg');
+            this.$router.push('/new-customer');
         },
 
         edit(customer){
             this.$emit('set-target', customer);
-            this.$router.push('/ClientReg');
+            this.$router.push('/new-customer');
         },
 
         del(customer){

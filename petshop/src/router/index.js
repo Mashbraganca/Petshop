@@ -14,16 +14,16 @@ Vue.use(VueRouter)
 
     //admin routes
     { path: '/admin', name: 'Admin', component: () => import('../views/Admin.vue') },
-    { path: '/GerenAdmin', name: 'GerenAdmin', component: () => import('../views/GerenAdmin.vue') },
-    { path: '/AdminReg', name: 'AdminReg', component: () => import('../views/AdminReg.vue') },
-    { path: '/GerenClientes', name: 'GerenClientes', component: () => import('../views/GerenClientes.vue') },
-    { path: '/ClientReg', name: 'ClientReg', component: () => import('../views/ClientReg.vue') },
-    { path: '/GerenItens', name: 'GerenItens', component: () => import('../views/GerenItens.vue') },
-    { path: '/CatItem', name: 'CatItem', component: () => import('../views/CatItem.vue') },
-    { path: '/CadItem', name: 'CadItem', component: () => import('../views/CadItem.vue') },
-    { path: '/CatServ', name: 'CatServ', component: () => import('../views/CatServ.vue') },
-    { path: '/CadServ', name: 'CadServ', component: () => import('../views/CadServ.vue') },
-    { path: '/Fat', name: 'Fat', component: () => import('../views/Fat.vue') }
+    { path: '/admins', name: 'GerenAdmin', component: () => import('../views/GerenAdmin.vue') },
+    { path: '/new-admin', name: 'AdminReg', component: () => import('../views/CadAdmin.vue') },
+    { path: '/customers', name: 'GerenClientes', component: () => import('../views/GerenClientes.vue') },
+    { path: '/new-customer', name: 'ClientReg', component: () => import('../views/CadCliente.vue') },
+    { path: '/products', name: 'GerenItens', component: () => import('../views/GerenItens.vue') },
+    { path: '/new-product', name: 'CadItem', component: () => import('../views/CadItem.vue') },
+    { path: '/categories', name: 'CatItem', component: () => import('../views/Category.vue') },
+    { path: '/services', name: 'CatServ', component: () => import('../views/GerenServ.vue') },
+    { path: '/new-service', name: 'CadServ', component: () => import('../views/CadServ.vue') },
+    { path: '/status', name: 'Fat', component: () => import('../views/Fat.vue') }
 
   
 

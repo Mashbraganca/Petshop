@@ -3,7 +3,8 @@
     <v-content>
       <router-view
         :cart=cart :gizmo=gizmo :logged=logged :user=user :target=target
-        :products=products :services=services :customers=customers :pets=pets :orders=orders :admins=admins
+        :products=products :services=services :customers=customers :pets=pets
+        :admins=admins :categories=categories :orders=orders
         @register-user="getUser" @set-target="setTarget" @refresh="refresh" @to-calendar="toCalendar" @to-cart="toCart">
       </router-view>
     </v-content>
@@ -34,9 +35,9 @@ export default {
     },
 
     products: [
-      { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png', storage: 20, category: 'Power Up', description: 'estrela'},
-      { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png', storage: 60, category: 'Power Up', description: 'estrela'},
-      { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png', storage: 10, category: 'Power Up', description: 'estrela'}
+      { name: 'A', id: '1', price: 1.0, photo: '/item-placeholder.png', storage: 20, category: 'Acessório', description: 'estrela'},
+      { name: 'B', id: '2', price: 1.0, photo: '/item-placeholder.png', storage: 60, category: 'Acessório', description: 'estrela'},
+      { name: 'C', id: '3', price: 1.0, photo: '/item-placeholder.png', storage: 10, category: 'Acessório', description: 'estrela'}
     ],
 
     services: [
@@ -81,6 +82,13 @@ export default {
       {name: 'Pet1', id: 'noossaa1', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
       {name: 'Pet2', id: 'noossaa2', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE"},
       {name: 'Pet3', id: 'noossaa3', photo: './pet-placeholder.png', race: 'Celeste', age: 42, owner: "SNAAAAAAAAAAAAAAKE2"}
+    ],
+
+    categories: [
+      'Ração',
+      'Acessório',
+      'Remédios',
+      'Outros'
     ]
   }),
 

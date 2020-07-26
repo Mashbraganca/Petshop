@@ -18,7 +18,7 @@
                   <v-text-field v-model="password" :rules="passwordRules" label="Senha" required></v-text-field>
                   <v-text-field v-model="confpassword" :rules="[confRules]" label="Confirmar Senha" required></v-text-field>
 
-                  <v-btn text color="blue" class="my-4" router to="/GerenAdmin">Cancel</v-btn>
+                  <v-btn text color="blue" class="my-4" router to="/customers">Cancel</v-btn>
                   <v-btn color="blue" @click="submit">Save</v-btn>
                 </v-col>
 
@@ -114,6 +114,7 @@ export default {
 
 
       this.$emit('refresh', 'customers');
+      this.$router.push('/customers');
     },
 
     editCustomer(data){
@@ -123,6 +124,7 @@ export default {
 
 
       this.$emit('refresh', 'customers');
+      this.$router.push('/customers');
     },
 
     submit(){
