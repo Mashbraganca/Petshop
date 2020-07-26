@@ -97,7 +97,8 @@ export default {
     methods: {
         order(hour){
             for(var i=0; i<this.orders.length; i++){
-                if(this.orders[i].hour == hour)
+                let orderDate = {day: this.orders[i].date.getDate(), month: this.orders[i].date.getMonth(), }
+                if(orderDate.day == this.date.day && orderDate.month == this.date.month && this.orders[i].hour == hour)
                     return this.orders[i];
             }
             return -1;

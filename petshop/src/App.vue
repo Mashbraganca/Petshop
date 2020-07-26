@@ -46,8 +46,8 @@ export default {
     ],
 
     orders: [
-      {name: 'X', icon: '/item-placeholder.png', pet: 'Celeste1', user: 'snake', hour:10},
-      {name: 'Y', icon: '/item-placeholder.png', pet: 'Celeste2', user: 'snake', hour:13}
+      {name: 'X', icon: '/item-placeholder.png', pet: 'Celeste1', user: 'snake', date: new Date(2020, 6, 28), hour:10},
+      {name: 'Y', icon: '/item-placeholder.png', pet: 'Celeste2', user: 'snake', date: new Date(2020, 6, 30), hour:13}
     ],
 
     admins: [
